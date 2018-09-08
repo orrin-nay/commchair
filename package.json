@@ -1,0 +1,22 @@
+{
+  "name": "commchair",
+  "version": "1.0.0",
+  "description": "Code red team's Hack the U 2018 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theRealFakeRock/commchair.git"
+  },
+  "author": "Code Red Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theRealFakeRock/commchair/issues"
+  },
+  "homepage": "https://github.com/theRealFakeRock/commchair#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
