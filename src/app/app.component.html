@@ -2,11 +2,14 @@
         <nav id="nav" class="shrink">
             <ul>
                 <li><a href="index.html">Home</a></li>
-				<li><a href="gallery.html">Gallery</a></li>
+				<li class = "nav-item"><a class= "nav-link" (click)="goGallery()">Gallery</a></li>
 				<li><a href="signup.hmtl">Sign up</a></li>
-				<li><a href="login.html">Login</a></li>
+				<li class = "nav-item"><a class= "nav-link" (click)="goLogin()">Login</a></li>
             </ul>
         </nav>
+
+		
+		<router-outlet></router-outlet>
 
         <header class="mastHead">
 			<div class="introBody">
