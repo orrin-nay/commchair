@@ -46,7 +46,10 @@ nav a {
 .mastHead {
     background: url(../images/banner.jpeg) no-repeat bottom center scroll;
     background-size: 100vw 100vh;
+    box-shadow: 10px 6px 7px black;
 }
+
+
 
 .introBody {
     min-height: 70vh;
@@ -61,6 +64,7 @@ nav a {
     text-align: center;
     background-color: #ffffffb3;
     padding: 25px 50px;
+    box-shadow: 1px 3px 7px black;
 }
 
 .introText h1, .introText h3 {
@@ -81,13 +85,23 @@ nav a {
 
 /*** Footer Style ***/
 
-footer {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-}
-
 .back2Tops {
     text-align: center;
+    padding: 10px;
 }
+
+.back2Tops a{
+    color:#cc0000;
+}
+
+.back2Tops p {
+    margin: 0px;
+}
+
+footer {
+    background-color: #312e2e;
+    color: white;
+}
+
+
+

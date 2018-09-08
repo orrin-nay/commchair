@@ -1,0 +1,17 @@
+/*** discription style ***/
+
+.description {
+    min-height: 50vh;
+    display: flex;
+    background-attachment: fixed;
+    background-color: #222c;
+    background-image: url("../images/tile.png");
+}
+
+
+
+.mission {
+    width: 50%;
+    margin: auto;
+    padding: 25px;
+}
