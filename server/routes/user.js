@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const express = require('express');
 const bcrypt = require('bcrypt')
 
 var User = mongoose.Schema({
@@ -7,11 +6,9 @@ var User = mongoose.Schema({
     lastName: String,
     email: String,
     phone: String,
-    password: String,
+    password: String
 });
 
-
-const router = express.Router();
 
 exports.login = (req, res) => {
     const email = req.body.email
