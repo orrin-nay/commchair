@@ -10,7 +10,7 @@
   "license": "ISC",
   "scripts": {
     "ng": "ng",
-    "start": "concurrently --kill-others \"ng serve --open\" \"npm run start-server\"",
+    "start": "concurrently --kill-others \"ng serve\" \"npm run start-server\"",
     "start-server": "nodemon ./server/index.js",
     "build": "ng build",
     "build-production": "ng build --prod",
@@ -31,9 +31,12 @@
     "@angular/platform-browser": "^6.1.0",
     "@angular/platform-browser-dynamic": "^6.1.0",
     "@angular/router": "^6.1.0",
+    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.13",
     "nodemon": "^1.18.4",
     "rxjs": "~6.2.0",
     "zone.js": "~0.8.26"
