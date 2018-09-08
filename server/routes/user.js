@@ -1,13 +1,6 @@
-const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
-
-var User = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    phone: String,
-    password: String
-});
+const { JWTSecret, bcryptSalts} = require('../constants')
+const User = require('../models/User')
 
 
 exports.login = (req, res) => {
@@ -82,7 +75,7 @@ exports.register = (req, res) => {
             res.send({error: "User Already Exist"})
             return
         }
-        bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.genSalt(bcryptSalts, function(err, salt) {
             if(err){
                 console.log(err)
                 res.send({error: err})
@@ -116,7 +109,7 @@ exports.register = (req, res) => {
 }
 
 const makeJWT = (email, callback) =>{
-    jwt.sign({ email: email }, 'This is a secret', function(err, token) {
+    jwt.sign({ email: email }, JWTSecret, function(err, token) {
         if(err){
             callback(err)
         }
