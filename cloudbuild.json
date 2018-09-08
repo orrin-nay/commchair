@@ -21,12 +21,12 @@
         "args": [
             "set",
             "image",
-            "deployment/oneapp-one-app-crystal-inns",
-            "bitbucket-webaholics-starterapp-crystal-inns-deployment=gcr.io/$PROJECT_ID/$REPO_NAME-$TAG_NAME:$REVISION_ID"
+            "deployment/commchair",
+            "github-therealfakerock-commchair=gcr.io/$PROJECT_ID/$REPO_NAME-$TAG_NAME:$REVISION_ID"
         ],
         "env": [
             "CLOUDSDK_COMPUTE_ZONE=us-west1-b",
-            "CLOUDSDK_CONTAINER_CLUSTER=one-app-cluster"
+            "CLOUDSDK_CONTAINER_CLUSTER=hacktheu"
         ]
     }
 ]
