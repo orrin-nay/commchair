@@ -7,7 +7,8 @@ COPY . /worspace/src
 WORKDIR /worspace/src
 
 RUN npm install
+RUN npm run build
 
 EXPOSE 3000
 
-ENTRYPOINT ["node", "index.js"]
+ENTRYPOINT ["node", "server/index.js"]
