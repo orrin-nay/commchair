@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const { login, register } = require("./user")
+const { createEvent, getEvents } = require("./events")
 
 mongoose.connect("mongodb://commchair:hacktheu2018@ds149672.mlab.com:49672/chaircomm");
 const connection = mongoose.connection;
@@ -19,5 +20,8 @@ router.use('/post', (req, res) => {
 
 router.use('/user/login', login)
 router.use('/user/register', register)
+
+router.use('/events/createevent', createEvent)
+router.use('/events/getevents', getEvents)
 
 module.exports = router;
