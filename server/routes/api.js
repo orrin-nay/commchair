@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const {login} = require("./user")
+const { login, register } = require("./user")
 
 mongoose.connect("mongodb://commchair:hacktheu2018@ds149672.mlab.com:49672/chaircomm");
 const connection = mongoose.connection;
@@ -18,5 +18,6 @@ router.use('/post', (req, res) => {
 });
 
 router.use('/user/login', login)
+router.use('/user/register', register)
 
 module.exports = router;
