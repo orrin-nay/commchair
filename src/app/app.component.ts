@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'commchair';
+	
+	function toggle() {
+				var element = document.getElementById("navCollapse");
+				element.classList.toggle("visable");
+			}
+		
+  
 }
