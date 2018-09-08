@@ -7,11 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'commchair';
-	
-	function toggle() {
-				var element = document.getElementById("navCollapse");
-				element.classList.toggle("visable");
-			}
-		
-  
+  mobileNavVisible = false;
+  mobileToggle() {
+    this.mobileNavVisible = ! this.mobileNavVisible;
+    console.log(this.mobileNavVisible);
+  }
 }

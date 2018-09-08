@@ -1,68 +1,71 @@
+<div ng-controller="app.component">
+  <div class="mobileNav">
 
-        
-		<div class="mobileNav">
-		
-			<div class="navbar-header">
-					<button type="button" class="navbar-toggle" ng-click="count = count + 1" ng-init="count=0">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					
-            </div>
-			
-			<div id="navCollapse">
-				<nav>
-					<ul>
-						<li><a href="final.html">Home</a></li>	
-						<li><a href="courses.html">Courses</a></li>
-						<li><a href="pe.html">Potential Employers</a></li>
-						<li><a href="challenge.html">IBM Mainframe Challenge</a></li>
-						<li><a href="io.html">Intership Opportunities</a></li>
-						<li><a href="faq.html">FAQ</a></li>
-						<li><a href="apply.html">Apply</a></li>
-					</ul>
-				</nav>
-				
-			</div>
-		</div>
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" (click)="mobileToggle()">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
 
-	
+    </div>
+
+    <div id="navCollapse" [ngClass]="{'visible': this.mobileNavVisible}">
+      <nav>
+        <ul>
+          <li><a href="final.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="pe.html">Potential Employers</a></li>
+          <li><a href="challenge.html">IBM Mainframe Challenge</a></li>
+          <li><a href="io.html">Intership Opportunities</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="apply.html">Apply</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </div>
 
 
-        <nav id="nav">
-            <ul>
-                <li><a href="app.component.html">Home</a></li>
-				<li><a href="component-gallery/component-gallery.component.html">Gallery</a></li>
-				<li><a href="signup.hmtl">Sign up</a></li>
-				<li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
-
-        <header class="mastHead">
-			<div class="introBody">
-			<div class="introText"> 
-			<h1>UCare</h1>
-			<h3>Find your passion</h3>
-			</div>
-			</div>
-		</header>   
-
-		<div class="description">
-			<article class="mission">
-				<h3>What is <strong>UCare</strong>?</h3>
-				<p><strong>UCare</strong> connects University of Utah students with local non-profits, charities, and volunteer oportunities. Create a <strong>UCare</strong> account and we will automatically match you with organiaztions looking for people just like you. Join our mailing list and recieve updates if any opportunities open up.</p>
-			</article>
-		</div>
-
-		<div class="feed" >
-			
-		</div>
-
-		<footer>
-
-			<div class="back2Tops"><a href=".mastHead"><p onclick="scollSmooth('top')" >Back to top</p></a></div>
-		</footer>
 
 
-	
+  <nav id="nav">
+    <ul>
+      <li><a href="app.component.html">Home</a></li>
+      <li><a href="component-gallery/component-gallery.component.html">Gallery</a></li>
+      <li><a href="signup.hmtl">Sign up</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <header class="mastHead">
+    <div class="introBody">
+      <div class="introText">
+        <h1>UCare</h1>
+        <h3>Find your passion</h3>
+      </div>
+    </div>
+  </header>
+
+  <div class="description">
+    <article class="mission">
+      <h3>What is <strong>UCare</strong>?</h3>
+      <p><strong>UCare</strong> connects University of Utah students with local non-profits, charities, and volunteer
+        oportunities. Create a <strong>UCare</strong> account and we will automatically match you with organiaztions
+        looking for people just like you. Join our mailing list and recieve updates if any opportunities open up.</p>
+    </article>
+  </div>
+
+  <div class="feed">
+
+  </div>
+
+  <footer>
+
+    <div class="back2Tops"><a href=".mastHead">
+        <p onclick="scollSmooth('top')">Back to top</p>
+      </a></div>
+  </footer>
+
+
+</div>
