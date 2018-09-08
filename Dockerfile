@@ -7,6 +7,7 @@ COPY . /worspace/src
 WORKDIR /worspace/src
 
 RUN npm install
+
 RUN npm run build
 
 EXPOSE 3000
