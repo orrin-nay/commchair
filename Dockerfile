@@ -8,7 +8,7 @@ WORKDIR /worspace/src
 
 RUN npm install
 
-RUN npm run build
+RUN npm run build-production
 
 EXPOSE 3000
 
