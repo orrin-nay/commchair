@@ -23,7 +23,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./src/styles.css",
+              "./src/css/bootstrap.css",
+              "./src/css/main.css",
+              "./src/css/mobile.css"
             ],
             "scripts": []
           },
