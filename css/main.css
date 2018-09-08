@@ -11,6 +11,7 @@
     left: 0;
     right: 0;
     z-index: 1000;
+    background-color: #646464b3;
 }
 
 #nav ul {
@@ -56,11 +57,26 @@ nav a {
 }
 
 .introText {
-    width: 100%;
+    margin: auto;
     text-align: center;
+    background-color: #ffffffb3;
+    padding: 25px 50px;
 }
 
 .introText h1, .introText h3 {
     font-family: cal;
     color: #cc0000;
 }	
+
+.introText h1{
+	font-size:42pt;
+}
+
+.introText h3{
+	font-size:24pt;
+}
+
+
+
+
+/*** Footer ***/
