@@ -5,7 +5,7 @@
         "args": [
             "build",
             "-t",
-            "gcr.io/$PROJECT_ID/$REPO_NAME-$TAG:$REVISION_ID",
+            "gcr.io/$PROJECT_ID/$REPO_NAME-$TAG_NAME:$REVISION_ID",
             "."
         ]
     },
@@ -22,7 +22,7 @@
             "set",
             "image",
             "deployment/oneapp-one-app-crystal-inns",
-            "bitbucket-webaholics-starterapp-crystal-inns-deployment=gcr.io/$PROJECT_ID/$REPO_NAME-$BRANCH_NAME:$REVISION_ID"
+            "bitbucket-webaholics-starterapp-crystal-inns-deployment=gcr.io/$PROJECT_ID/$REPO_NAME-$TAG_NAME:$REVISION_ID"
         ],
         "env": [
             "CLOUDSDK_COMPUTE_ZONE=us-west1-b",
