@@ -79,4 +79,15 @@ nav a {
 
 
 
-/*** Footer ***/
+/*** Footer Style ***/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.back2Tops {
+    text-align: center;
+}
