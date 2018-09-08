@@ -1,0 +1,11 @@
+@media(min-width: 750px){
+	.mobileNav{
+		display: none;
+	}
+}
+
+@media(max-width: 750px){
+	#nav{
+		display: none;
+	}
+}
