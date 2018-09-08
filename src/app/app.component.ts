@@ -11,14 +11,14 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   goHome() {
-    this.router.navigate(['']);
+    this.router.navigate(['component']);
   }
 
   goGallery() {
-    this.router.navigate(['component-gallery/component-gallery.component.html']);
+    this.router.navigate(['gallery']);
   }
 
   goLogin() {
-    this.router.navigate(['component-login/component-login.component.html']);
+    this.router.navigate(['login']);
   }
 }

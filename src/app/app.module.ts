@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ComponentGalleryComponent } from './component-gallery/component-gallery.component';
 import { ComponentLoginComponent } from './component-login/component-login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { HomeComponentComponent } from './home-component/home-component.component';
 
 
 const MATERIAL_MODULES = [
@@ -18,16 +19,17 @@ const MATERIAL_MODULES = [
 ];
 
 const routes: Routes = [
-  {path: '', component: AppComponent },
-  {path: 'component-login/component-login.component.html', component: ComponentLoginComponent },
-  {path: 'component-gallery/component-gallery.component.html', component: ComponentGalleryComponent }
+  {path: '', component: HomeComponentComponent },
+  {path: 'login', component: ComponentLoginComponent },
+  {path: 'gallery', component: ComponentGalleryComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ComponentLoginComponent,
-    ComponentGalleryComponent
+    ComponentGalleryComponent,
+    HomeComponentComponent
   ],
   imports: [
     MATERIAL_MODULES,
