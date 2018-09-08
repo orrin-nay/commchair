@@ -25,7 +25,7 @@
             "github-therealfakerock-commchair=gcr.io/$PROJECT_ID/$REPO_NAME-$TAG_NAME:$REVISION_ID"
         ],
         "env": [
-            "CLOUDSDK_COMPUTE_ZONE=us-west1-b",
+            "CLOUDSDK_COMPUTE_ZONE=us-us-central1-a",
             "CLOUDSDK_CONTAINER_CLUSTER=hacktheu"
         ]
     }
