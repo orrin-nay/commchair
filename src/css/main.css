@@ -103,5 +103,10 @@ footer {
     color: white;
 }
 
+body strong {
+    font-weight: normal;
+    color: #cc0000;
+}
+
 
 
