@@ -1,13 +1,14 @@
 const jwt = require('jsonwebtoken')
 const {
-  jwtSecret
+  JWTSecret
 } = require('../constants')
+const VolunteerOpportunity = require('../models/Events')
 const User = require('../models/User')
 
 module.exports.createEvent = (req, res) => {
   const name = req.body.name;
   const jwtToken = req.body.jwt
-  jwt.verify(jwtToken, jwtSecret, function (err, userInfo) {
+  jwt.verify(jwtToken, JWTSecret, function (err, userInfo) {
     if (err) {
       console.log(err)
       res.send({
