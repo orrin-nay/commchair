@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import { UserService } from './services/users/user.service';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,8 +10,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router) {
+  constructor(private router: Router, private userService:UserService) {
    }
+   
+  loggedIn = this.userService.isUserLoggedIn();
   title = 'commchair';
   mobileNavVisible = false;
   mobileToggle() {
@@ -30,10 +35,17 @@ export class AppComponent {
 
   goLogin() {
     this.router.navigate(['login']);
+  }
+  
+  goLogout(){
+	this.userService.logout();
+	this.router.navigate(['']);
+  }
+	
 
   // mobileNavVisible = false;
   // mobileToggle() {
   //   this.mobileNavVisible = ! this.mobileNavVisible;
   //   console.log(this.mobileNavVisible);
-  }
 }
+

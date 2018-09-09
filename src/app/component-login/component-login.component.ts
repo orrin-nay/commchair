@@ -13,7 +13,6 @@ export class ComponentLoginComponent implements OnInit {
 
   hide = true;
 
-
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -26,6 +25,10 @@ export class ComponentLoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+  
+  
+  
   login() {
    const  email = this.emailFormControl.value;
    const  password = this.password;
