@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators, FormBuilder } from '@angular/forms';
 import { EventsService } from '../services/events/events.service';
 import { SkillsService, Skill } from '../services/skills/skills.service';
@@ -17,7 +18,8 @@ export class ComponentEventComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private eventService: EventsService,
-    private skillsService: SkillsService
+    private skillsService: SkillsService,
+    private router: Router
   ) { 
     this.addedSkills = [];
     this.form = this.formBuilder.group({
@@ -44,8 +46,16 @@ export class ComponentEventComponent implements OnInit {
     let description = form.value.description
     let organization = form.value.organization;
 
-    this.eventService.createEvent(name, description, organization)
-      .subscribe(e => console.log(e));
+    const skills = []
+    this.addedSkills.forEach(skill =>{
+      skills.push(skill)
+    })
+
+    this.eventService.createEvent(name, description, organization, skills)
+      .subscribe(e => {
+        
+      this.router.navigate(['feed']);
+      });
   }
   addSkill() {
     if (!this.addedSkills) {
@@ -54,7 +64,7 @@ export class ComponentEventComponent implements OnInit {
     const doesExist = this.addedSkills.findIndex(
       o1 => o1.name === this.form.value.skillName
     );
-    if (!doesExist) {
+    if (-1 === doesExist) {
       this.skills.forEach(skillFromDb => {
         if (skillFromDb.name === this.form.value.skillName) {
           this.addedSkills.push(skillFromDb);
@@ -62,13 +72,12 @@ export class ComponentEventComponent implements OnInit {
       });
     }
     this.form.value.skillName = '';
-    console.log(this.addedSkills)
   }
   canSubmit() {
     const doesExist = this.addedSkills.findIndex(
       o1 => o1.name === this.form.value.skillName
     );
-    if (!doesExist) {
+    if (-1 < doesExist) {
       return false;
     }
     let skillExists = false;
@@ -91,7 +100,7 @@ export class ComponentEventComponent implements OnInit {
       const doesExist = this.addedSkills.findIndex(
         o1 =>  o1.id === skill.id
       );
-      if (doesExist) {
+      if (-1 === doesExist) {
         skillsReturn.push(skill);
       }
     });
