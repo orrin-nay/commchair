@@ -11,6 +11,7 @@ export class HomeComponentComponent implements OnInit {
     eventsService.getEvents().subscribe(events => {
       this.events = events;
     });
+    eventsService.createEvent('code at hackathon');
   }
   events: any = [];
 
