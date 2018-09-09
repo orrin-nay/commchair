@@ -13,7 +13,7 @@ export class AppComponent {
     });
    }
   mobileNavVisible = false;
-  events: any;
+  events: any = [];
   mobileToggle() {
     this.mobileNavVisible = ! this.mobileNavVisible;
     console.log(this.mobileNavVisible);
