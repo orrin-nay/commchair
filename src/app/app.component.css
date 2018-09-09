@@ -55,7 +55,11 @@ nav a {
     }
 
     .mobileUl a{
-        font-size: 10pt;
+        font-size: 18pt;
+    }
+
+    .navCollapse li {
+        padding: 10px 0px;
     }
 
     .navCollapse{
@@ -63,8 +67,6 @@ nav a {
         padding-bottom: 5px;
     }
 
-    body .introText h1{
-        font-size: 24pt;
-    }
+    
 }
 
