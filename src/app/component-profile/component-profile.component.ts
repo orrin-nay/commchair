@@ -67,5 +67,14 @@ export class ComponentProfileComponent implements OnInit {
     });
     return skillsReturn;
   }
+  removeSkill(skill) {
+    const index = this.user.skills.findIndex(
+      o1 => o1.name === skill.name
+    );
+    if (index) {
+      this.user.skills.splice(index, 1);
+    }
+    this.userService.removeSkill(skill).subscribe();
+  }
   ngOnInit() {}
 }

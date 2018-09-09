@@ -270,7 +270,7 @@ module.exports.addSkill = (req, res) => {
     })
   })
 }
-module.exports.addSkill = (req, res) => {
+module.exports.removeSkill = (req, res) => {
   const jwtToken = req.body.jwt
   const skill = req.body.skill
   if (!skill) {
@@ -311,7 +311,11 @@ module.exports.addSkill = (req, res) => {
         })
         return
       }
-      user.skills.pop(index);
+      user.skills.splice(index, 1);
+      user.save()
+      res.send({
+        success: true
+      })
     })
   })
 }

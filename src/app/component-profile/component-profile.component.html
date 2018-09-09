@@ -10,7 +10,7 @@
         <tr><td>Phone:</td><td>{{user.phone}}</td></tr>
         <tr><td>Skills:</td><td><ul>
             <li *ngFor="let skill of user.skills">
-              {{skill.name}}
+              {{skill.name}} <button (click)="removeSkill(skill._id)">x</button>
             </li>
             
           </ul></td></tr>

@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const { login, register, profile, addSkill } = require("./user")
+const { login, register, profile, addSkill, removeSkill } = require("./user")
 const { createEvent, getEvents } = require("./events")
 const { getSkills } = require("./skills")
 
@@ -23,6 +23,7 @@ router.use('/user/login', login)
 router.use('/user/register', register)
 router.use('/user/profile', profile)
 router.use('/user/addskill', addSkill)
+router.use('/user/removeskill', removeSkill)
 
 router.use('/events/createevent', createEvent)
 router.use('/events/getevents', getEvents)
