@@ -8,4 +8,50 @@
 	#nav{
 		display: none;
 	}
+
+	.navbar-header {
+    	background-color: #5c5c5c;
+	}
+
+
+	.mobileNav .navbar-toggle {
+    	position: relative;
+    	padding: 9px 10px;
+    	margin:8px;
+    	border-radius: 4px;
+    	float:none;
+    	background-color: gray;
+    	border:none;
+
+	}
+
+	.navbar-toggle .icon-bar {
+    	display: block;
+    	width: 22px;
+    	height: 3px;
+    	border-radius: 1px;
+    	background-color: white;
+    	border: 0px;
+	}
+
+	#navCollapse{
+		display: none;
+	}
+
+
+	.mastHead .introBody {	
+    	min-height: 100%;
+	}
+
+	body .mastHead,body .introText{
+		box-shadow: none;
+	}
+
+	body .description .mission{
+		width: 100%;
+		margin:0px;
+	}
+
+
+
 }

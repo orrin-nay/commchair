@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'commchair';
+
   constructor(private router: Router) {}
 
   goHome() {
@@ -20,5 +21,10 @@ export class AppComponent {
 
   goLogin() {
     this.router.navigate(['login']);
+
+  // mobileNavVisible = false;
+  // mobileToggle() {
+  //   this.mobileNavVisible = ! this.mobileNavVisible;
+  //   console.log(this.mobileNavVisible);
   }
 }

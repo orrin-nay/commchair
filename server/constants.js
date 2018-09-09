@@ -1,2 +1,2 @@
-modules.exports.JWTSecret = "jwt secret"
-modules.exports.bcryptSalts = 10
+module.exports.JWTSecret = "jwt secret"
+module.exports.bcryptSalts = 10
