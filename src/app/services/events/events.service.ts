@@ -6,6 +6,8 @@ import { environment } from '../../../environments/environment';
 export interface Event {
   name: string;
   ownerId: string;
+  description: string;
+  organization: string;
 }
 
 @Injectable({
