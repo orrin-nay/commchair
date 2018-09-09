@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EventsService } from '../services/events/events.service';
 
 @Component({
   selector: 'app-component-feed',
@@ -7,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponentFeedComponent implements OnInit {
 
-  constructor() { }
+  constructor(private eventsService: EventsService) {
+    eventsService.getEvents().subscribe(events => {
+      this.events = events;
+    });
+  }
+  events: any = [];
 
   ngOnInit() {
   }

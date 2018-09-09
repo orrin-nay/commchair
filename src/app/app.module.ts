@@ -16,7 +16,6 @@ import { ComponentRegisterComponent } from './component-register/component-regis
 import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule,
    MatTableModule, MatProgressSpinnerModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
-import { FeedComponent } from './feed/feed.component';
 import { ComponentFeedComponent } from './component-feed/component-feed.component';
 
 
@@ -42,6 +41,7 @@ const routes: Routes = [
   {path: 'login', component: ComponentLoginComponent },
   {path: 'gallery', component: ComponentGalleryComponent },
   {path: 'register', component: ComponentRegisterComponent},
+  {path: 'feed', component: ComponentFeedComponent},
 ];
 
 @NgModule({
@@ -51,7 +51,6 @@ const routes: Routes = [
     ComponentGalleryComponent,
     HomeComponentComponent,
     ComponentRegisterComponent,
-    FeedComponent,
     ComponentFeedComponent
   ],
   imports: [
