@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { EventsService } from './services/events/events.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,13 +7,9 @@ import {Router} from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private eventsService: EventsService, private router: Router) {
-    eventsService.getEvents().subscribe((events) => {
-      this.events = events;
-    });
+  constructor(private router: Router) {
    }
   mobileNavVisible = false;
-  events: any = [];
   mobileToggle() {
     this.mobileNavVisible = ! this.mobileNavVisible;
     console.log(this.mobileNavVisible);
