@@ -11,7 +11,8 @@ import { ComponentLoginComponent } from './component-login/component-login.compo
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { ComponentRegisterComponent } from './component-register/component-register.component';
-import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule, MatTableModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule, MatTableModule, 
+  MatProgressSpinnerModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 
 
