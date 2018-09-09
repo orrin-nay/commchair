@@ -13,7 +13,9 @@ export class AppComponent {
   goHome() {
     this.router.navigate(['component']);
   }
-
+  goRegister() {
+    this.router.navigate(['register']);
+  }
   goGallery() {
     this.router.navigate(['gallery']);
   }
