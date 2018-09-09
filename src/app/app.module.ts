@@ -8,7 +8,7 @@ import { ComponentGalleryComponent } from './component-gallery/component-gallery
 import { ComponentLoginComponent } from './component-login/component-login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponentComponent } from './home-component/home-component.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 const MATERIAL_MODULES = [
     BrowserModule,
@@ -33,7 +33,8 @@ const routes: Routes = [
   ],
   imports: [
     MATERIAL_MODULES,
-    RouterModule.forRoot(routes, {useHash: true})
+    RouterModule.forRoot(routes, {useHash: true}),
+    HttpClientModule
   ],
 
   exports: [
