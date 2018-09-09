@@ -1,0 +1,38 @@
+
+/***Nav Style***/
+#nav {
+    display: flex;
+    justify-content:space-evenly;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #646464b3;
+}
+
+#nav ul {
+}
+
+#nav li {
+    display: table-cell;
+    padding: 15px;
+    width: 25%;
+	text-align: center;
+}
+
+nav a {
+    font-size: 16pt;
+    font-family: 'Raleway',helvetica, serif;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all .25s;
+}
+
+#nav a:hover, #nav a:focus{
+	text-decoration:underline;
+	color: #cc0000;
+    cursor: pointer;
+}	
