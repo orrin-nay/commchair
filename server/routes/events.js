@@ -158,7 +158,7 @@ module.exports.subscribe = (req, res) => {
         var mailOptions = {
           from: 'richardtimpson80@gmail.com',
           to: subUser.email,
-          subject: `Thanks for subscribing to our${opp.name} event!`,
+          subject: `Thanks for subscribing to our ${opp.name} event!`,
           text: `${opp.description}`
         };
 
