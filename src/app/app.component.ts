@@ -9,6 +9,7 @@ import {Router} from '@angular/router';
 export class AppComponent {
   constructor(private router: Router) {
    }
+   title = 'UCare';
   mobileNavVisible = false;
   mobileToggle() {
     this.mobileNavVisible = ! this.mobileNavVisible;
