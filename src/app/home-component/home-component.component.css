@@ -76,8 +76,8 @@
 /*** mobile ***/
 
 @media(max-width: 750px){
-	#mobileWrapper .introText h1{
-        font-size: 24pt;
+	#navWrapper .introText h1{
+        font-size: 45pt;
     }
 
     #mobileWrapper .introText {
@@ -85,7 +85,7 @@
 	}	
 
 	#mobileWrapper .introText h3{
-		font-size: 12pt;
+		font-size: 24pt;
 	}
 
 	#mobileWrapper .mastHead{
@@ -97,13 +97,14 @@
 	}
 
 	#mobileWrapper h3{
-		font-size: 12pt;
+		font-size: 18pt;
 		padding: 5px;
 	}
 
 	#mobileWrapper p{
-		font-size: 9pt;
+		font-size: 14pt;
 		padding: 5px;
+		color: black;
 	}
 
 	.MobileVolunteerevent {
@@ -111,17 +112,23 @@
     	list-style-type: none;
     	padding-bottom: 5px;
     	margin-bottom: 25px;
-    	background-color: white;
+    	background-color: whitesmoke;
+    	font-size: 12pt;
 	}
 
 	#mobileFeedBox{
-		background-color: #cc0000;
+		margin: 0px 0px;
+    	
+    	
 	}
 
 	#mobileFeedBox h3 {
-    	margin: 10px 0px;
+		margin: 0px;
     	padding-top:15px; 
     	color:white;
+    	background-color: #cc0000;
+    	padding-top: 25px;
+    	padding-bottom: 15px;
 	}
 
 	.MobileVolunteerevent li:first-of-type{
