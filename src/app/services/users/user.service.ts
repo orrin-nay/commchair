@@ -53,5 +53,7 @@ export class UserService {
   isUserLoggedIn(): boolean {
     return !!localStorage.getItem('jwt-token');
   }
-  getUser(): Observable<User>
+  getUser() {
+    
+  }
 }
