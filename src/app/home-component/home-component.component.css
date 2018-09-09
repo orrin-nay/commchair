@@ -13,6 +13,10 @@
     padding: 25px;
 }
 
+#footwrapper .back2Tops p{
+	color:white;
+}
+
 .mission p{
 	font-size: 16pt
 }
