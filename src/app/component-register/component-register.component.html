@@ -17,7 +17,7 @@
 
   <mat-form-field>
 
-    <input (keyup) ="printError()" matInput placeholder="Email" formControlName="email" [errorStateMatcher]="regularMatcher">
+    <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="regularMatcher">
 
     <mat-error *ngIf="registerForm.controls.email.hasError('email') && !registerForm.controls.email.hasError('required')">
       Please enter a valid email address
@@ -30,7 +30,7 @@
   </mat-form-field>
 
   <mat-form-field class="form-fields" >
-    <input (keyup) ="printError()" name="phone" type ="phone" matInput placeholder="Phone" formControlName="phone" [errorStateMatcher]="regularMatcher">
+    <input name="phone" type ="phone" matInput placeholder="Phone" formControlName="phone" [errorStateMatcher]="regularMatcher">
 
     <mat-error *ngIf="registerForm.hasError('notValidPhone')">
       Please enter a valid phone number

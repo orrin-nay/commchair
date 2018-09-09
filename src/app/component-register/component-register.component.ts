@@ -98,7 +98,8 @@ export class ComponentRegisterComponent implements OnInit {
     let firstName = form.value.firstName;
     let lastName = form.value.lastName;
     let phone = form.value.phone;
-    this.userService.registerUser(firstName, lastName, email, phone, this.password);
+    this.userService.registerUser(firstName, lastName, email, phone, this.password)
+      .subscribe(e => console.log(e));
     console.log(this.password);
     console.log(this.passwordConf);
   }
