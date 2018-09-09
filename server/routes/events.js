@@ -75,8 +75,7 @@ module.exports.createEvent = (req, res) => {
     })
   });
 }
-
-  module.exports.getEvent = (req, res) => {
+module.exports.getEvent = (req, res) => {
 	const eventid = req.body.eventid;
 
 	  
@@ -92,7 +91,6 @@ module.exports.createEvent = (req, res) => {
     res.send(JSON.stringify(opps))
   })
 }
-
 module.exports.getEvents = (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   VolunteerOpportunity.find({}, function (err, opps) {
@@ -136,61 +134,61 @@ module.exports.subscribe = (req, res) => {
         return
       }
       subUser = user;
-    })
-    VolunteerOpportunity.findById(eventId, (err, opp) => {
-      if (err) {
-        console.log(err)
-        res.send({
-          error: err
-        })
-        return
-      }
-      if (opp.subscribers.includes(subUser._id)) {
-        console.log("Can't add existent user to database");
-        res.send({
-          error: "User already subscribed"
-        })
-        return
-      }
-      else {
-        // opp.subscribers.push(subUser._id);
-        // opp.save();
-        console.log(opp);
-        console.log(subUser.email);
-
-
-        /**
-         * copied from nodemail website 
-         */
-
-
-        var transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-            user: 'richardtimpson80@gmail.com',
-            pass: 'hetfield32'
-          }
-        });
-
-        var mailOptions = {
-          from: 'richardtimpson80@gmail.com',
-          to: subUser.email,
-          subject: `Thanks for subscribing to our ${opp.name} event!`,
-          text: `${opp.description}`
-        };
-
-        transporter.sendMail(mailOptions, function(error, info){
-          if (error) {
-            console.log(error);
-          } else {
-            console.log('Email sent: ' + info.response);
-          }
-        });
-        res.send({
-          succes: true
-        })
-        return
-      }
+      VolunteerOpportunity.findById(eventId, (err, opp) => {
+        if (err) {
+          console.log(err)
+          res.send({
+            error: err
+          })
+          return
+        }
+        if (opp.subscribers.includes(subUser._id.toString())) {
+          console.log("Can't add existent user to database");
+          res.send({
+            error: "User already subscribed"
+          })
+          return
+        }
+        else {
+          opp.subscribers.push(subUser._id);
+          opp.save();
+          console.log(opp);
+          console.log(subUser.email);
+          
+          
+          /**
+           * copied from nodemail website 
+           */
+          
+          
+          var transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: 'richardtimpson80@gmail.com',
+              pass: 'hetfield32'
+            }
+          });
+          
+          var mailOptions = {
+            from: 'richardtimpson80@gmail.com',
+            to: subUser.email,
+            subject: `Thanks for subscribing to our ${opp.name} event!`,
+            text: `${opp.description}`
+          };
+          
+          transporter.sendMail(mailOptions, function(error, info){
+            if (error) {
+              console.log(error);
+            } else {
+              console.log('Email sent: ' + info.response);
+            }
+          });
+          res.send({
+            succes: true
+          })
+          return
+        }
+      })
     })
   })
 }
