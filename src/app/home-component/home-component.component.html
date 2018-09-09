@@ -18,7 +18,9 @@
   <div class="feed">
       <ul *ngIf="events">
         <li *ngFor="let event of events">
-          {{event.name}}
+            {{event.organization}}
+            {{event.name}}
+            {{event.description}}
         </li>
       </ul>
     </div>
