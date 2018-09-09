@@ -24,7 +24,7 @@
           </mat-form-field>
         </form>
         <mat-form-field class="form-full-width">
-          <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password"
+          <input name="password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" [(ngModel)]="password"
             #ctrl="ngModel">
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
         </mat-form-field>
