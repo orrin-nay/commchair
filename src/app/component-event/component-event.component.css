@@ -13,3 +13,55 @@ h1 {
     margin-top: 100px;
     display:block;
 }
+
+#background {
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: 100vh;
+    background-image:url("../../images/tile.png");
+    z-index: -10;
+}
+
+#eventsForm {
+    width: 45%;
+    margin: auto;
+    background-color: white;
+    padding: 15px;
+}
+
+#eventsForm form {
+    width: 100%;
+}
+
+#eventsForm h1 {
+	margin-top: 0px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    font-size: 30px;
+
+}
+
+#eventWrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+}
+
+#eventsForm button {
+    width: 25%;
+    background-color: #cc0000;
+}
+
+.logo {
+
+    width: 50px;
+    height: 50px;
+    margin: 10px 0px;
+
+}

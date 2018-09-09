@@ -1,3 +1,8 @@
+<div id="background"></div>
+<div id="eventWrapper">
+
+<div id="eventsForm">
+<img src="../../assets/img/Ulogo.png" class="logo">
 <h1> Add your event here!</h1>
 
 <form #eventForm="ngForm" (ngSubmit)="submit(eventForm)" class="event-form" [formGroup]="form">
@@ -12,7 +17,9 @@
     <input matInput placeholder="organization" formControlName="organization">
 
   </mat-form-field>
-  <button type="submit">
+  <button mat-raised-button color="accent" type="submit">
     Add Event
   </button>
 </form>
+</div>
+</div>
