@@ -31,7 +31,7 @@ export class EventsService {
   }
 
   createEvent(name: String) {
-    const jwt = localStorage.getItem('jwt-token')
+    const jwt = localStorage.getItem('jwt-token');
     return fetch(environment.host + '/api/events/createevent',
     {
       method: 'POST', // *GET, POST, PUT, DELETE, etc.
