@@ -43,6 +43,29 @@ tr td:last-of-type {
     width: 100%;
 }
 
+.wrapper ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.wrapper #submit{
+    background-color: #cc0000;
+    color: white;
+}
+
+.wrapper .skills{
+    margin-top: 20px;
+}
+
+.X {
+    clear: both;
+    float: right;
+    background-color: transparent;
+    border: 0px;
+    color: red;
+    padding: 0;
+}
+
 .logo {
     width: 50px;
     height: 50px;

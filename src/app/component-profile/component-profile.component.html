@@ -8,15 +8,18 @@
   			<tr><td>LastName:</td><td>{{user.lastName}}</td></tr>
   			<tr><td>Email:</td><td>{{user.email}}</td></tr>
         <tr><td>Phone:</td><td>{{user.phone}}</td></tr>
-        <tr><td>Skills:</td><td><ul>
+        <tr class="skills"><td>Skills:</td><td><ul>
+        	<br>
             <li *ngFor="let skill of user.skills">
-              {{skill.name}} <button (click)="removeSkill(skill._id)">x</button>
+              {{skill.name}} <button class="X" (click)="removeSkill(skill._id)">x</button>
             </li>
             
           </ul></td></tr>
-          <tr><td><button [disabled]="! canSubmit()" (click)="addSkill()">Add Skill</button></td><td><input [(ngModel)]="skillName" name="skillName" type="text" placeholder="Add a skill" list="skills"></td></tr>
+          <br>
+          <tr><td><button id="submit" mat-raised-button color="accent" [disabled]="! canSubmit()" (click)="addSkill()">Add Skill</button></td><td><input [(ngModel)]="skillName" name="skillName" type="text" placeholder="Add a skill" list="skills"></td></tr>
 		</table>
   </div>
+
   <datalist id="skills">
       <option *ngFor="let skill of skillsThatTheUserDoesntHave()" value="{{skill.name}}">
     </datalist>

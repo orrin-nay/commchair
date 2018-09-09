@@ -40,7 +40,8 @@ export class AppComponent {
   goProfile(){
     this.router.navigate(['profile']);
   }
-	
+  
+
 
   mobileNavVisible = false;
   mobileToggle() {
