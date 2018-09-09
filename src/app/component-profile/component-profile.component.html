@@ -1,11 +1,23 @@
-<ul *ngIf="user">
-  <li>{{user.firstName}}</li>
-  <li>{{user.lastName}}</li>
-  <li>{{user.email}}</li>
-  <li>{{user.phone}}</li>
-  <li><ul>
-    <li *ngFor="let skill of user.skills">
-      {{skill.name}}
-    </li>
-  </ul></li>
-</ul>
+<div id="mobileWrapper">
+<div id="background"></div>
+	<div class="wrapper">
+
+		<table *ngIf="user">
+			<th colspan="2"><h1 class="profile-title">Your Profile</h1></th>
+  			<tr><td>Firstname:</td><td>{{user.firstName}}</td></tr>
+  			<tr><td>LastName:</td><td>{{user.lastName}}</td></tr>
+  			<tr><td>Email:</td><td>{{user.email}}</td></tr>
+        <tr><td>Phone:</td><td>{{user.phone}}</td></tr>
+        <tr><td>Skills:</td><td><ul>
+            <li *ngFor="let skill of user.skills">
+              {{skill.name}}
+            </li>
+            
+          </ul></td></tr>
+          <tr><td><button [disabled]="! canSubmit()" (click)="addSkill()">Add Skill</button></td><td><input [(ngModel)]="skillName" name="skillName" type="text" placeholder="Add a skill" list="skills"></td></tr>
+		</table>
+  </div>
+  <datalist id="skills">
+      <option *ngFor="let skill of skillsThatTheUserDoesntHave()" value="{{skill.name}}">
+    </datalist>
+</div>

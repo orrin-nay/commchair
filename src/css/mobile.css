@@ -5,7 +5,7 @@
 }
 
 @media(max-width: 750px){
-	#nav{
+	body #nav{
 		display: none;
 	}
 

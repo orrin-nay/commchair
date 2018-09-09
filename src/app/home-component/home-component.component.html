@@ -1,4 +1,4 @@
-
+<div id="mobileWrapper">
     <header class="mastHead">
     <div class="introBody">
     <div class="introText"> 
@@ -16,8 +16,8 @@
   </div>
 
   <div class="feed">
-      <table *ngIf="events" id="feedBox">
-      		<tr>
+      <table *ngIf="notMobile" id="feedBox">
+      		<tr >
       			<td>Event Organizer</td>
       			<td>Event Name</td>
       			<td>Event Description</td>
@@ -29,9 +29,22 @@
             	
         </tr>
       </table>
+
+
+      <div *ngIf="!notMobile" id="mobileFeedBox">
+        <h3>Events</h3>      
+        <ul *ngFor="let event of events" class="MobileVolunteerevent">
+                <li>{{event.organization}}</li>
+                <li>{{event.name}}</li>
+                <li>{{event.description}}</li>
+              
+        </ul>
+      </div>
     </div>
 
   <footer>
 
     <div class="back2Tops"><a href=".mastHead"><p onclick="scollSmooth('top')" >Back to top</p></a></div>
   </footer>
+
+</div>

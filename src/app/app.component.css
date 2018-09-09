@@ -21,6 +21,11 @@
 	text-align: center;
 }
 
+#nav ul{
+    margin: 0px;
+    padding: 0px;
+}
+
 nav a {
     font-size: 16pt;
     font-family: 'Raleway',helvetica, serif;
@@ -35,3 +40,31 @@ nav a {
 	color: #cc0000;
     cursor: pointer;
 }	
+
+
+@media(max-width: 750px){
+    #navwrapper #nav{
+        display: none !important; 
+    }
+
+    .mobileUl{
+        padding: 0px 0px 0px 10px;
+        list-style-type: none;
+        margin: 0px;
+
+    }
+
+    .mobileUl a{
+        font-size: 10pt;
+    }
+
+    .navCollapse{
+        background-color: gray;
+        padding-bottom: 5px;
+    }
+
+    body .introText h1{
+        font-size: 24pt;
+    }
+}
+

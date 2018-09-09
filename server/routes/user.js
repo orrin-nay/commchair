@@ -262,12 +262,56 @@ module.exports.addSkill = (req, res) => {
         if (!user.skills) {
           user.skills = []
         }
-        user.skills.push(skill)
+        user.skills.push(skill.id)
         user.save((user) => {
-          user.password = undefined;
-          res.send(user)
+          res.send({success: true})
         })
       })
+    })
+  })
+}
+module.exports.addSkill = (req, res) => {
+  const jwtToken = req.body.jwt
+  const skill = req.body.skill
+  if (!skill) {
+    res.send({
+      error: "Must include a skill"
+    })
+    return
+  }
+  jwt.verify(jwtToken, JWTSecret, function (err, userInfo) {
+    if (err) {
+      console.log(err)
+      res.send({
+        error: err
+      })
+      return
+    }
+    User.findOne({
+      email: userInfo.email
+    }, (err, user) => {
+      if (err) {
+        console.log(err)
+        res.send({
+          error: err
+        })
+        return
+      }
+      const doesUserExist = !!user
+      if (!doesUserExist) {
+        res.send({
+          error: "Issue"
+        })
+        return
+      }
+      const index = user.skills.findIndex((o) => o === skill);
+      if (!index) {
+        res.send({
+          error: "Invalid Skill"
+        })
+        return
+      }
+      user.skills.pop(index);
     })
   })
 }

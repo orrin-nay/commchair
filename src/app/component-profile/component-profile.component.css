@@ -1,0 +1,65 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+#background {
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: 100vh;
+    background-image:url("../../images/tile.png");
+    z-index: -10;
+}
+
+table {
+    width: 50%;
+    margin: auto;
+    padding: 15px;
+    border-collapse: inherit;
+    background-color: white;
+}
+
+tr {
+    font-size: 16pt;
+}
+
+tr td:last-of-type {
+    width: 50%;
+}
+
+.wrapper tr th{
+	width:100%;
+}
+
+.profile-title {
+    font-size: 30pt;
+    padding: 0px;
+    margin: 10px 0px;
+    width: 100%;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    padding: 15px;
+    box-sizing: unset;
+}
+
+@media(max-width: 750px){
+    #mobileWrapper table{
+        width: 100%;
+        padding: 0px;
+    }
+    #mobileWrapper #background{
+        min-width: 100%;
+    }
+
+    #mobileWrapper td{
+        width: 100%;
+    }
+}

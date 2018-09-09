@@ -73,15 +73,19 @@ export class UserService {
     });
   }
   addSkill(skill) {
+    const jwt =  localStorage.getItem('jwt-token');
     return this.http.post<User>(environment.host + '/api/user/addskill',
      {
-      skill
+      skill,
+      jwt
     });
   }
   removeSkill(skill) {
+    const jwt =  localStorage.getItem('jwt-token');
     return this.http.post<User>(environment.host + '/api/user/removeskill',
      {
-      skill
+      skill,
+      jwt
     });
   }
 }
