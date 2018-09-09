@@ -190,15 +190,21 @@ module.exports.profile = (req, res) => {
         user.skills.forEach(
           skill => skills.push(
             new Promise((resolve) =>{
-            Skill.findById(skill).then(skill => {
-              resolve(skill)
+            Skill.findById(skill).then(newSkill => {
+              resolve(newSkill)
             })
           }))
         );
       }
       Promise.all(skills).then(function (skillsFromDb) {
-        user.skills = skillsFromDb
-        res.send(user)
+        const newUser = {
+          firstName: user.firstName,
+          lastName: user.lastName,
+          email: user.email,
+          phone: user.phone,
+          skills: skillsFromDb,
+        }
+        res.send(newUser)
       })
     })
   })

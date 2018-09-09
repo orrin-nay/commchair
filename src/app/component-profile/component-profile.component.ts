@@ -11,7 +11,9 @@ export class ComponentProfileComponent implements OnInit {
   user: User;
   constructor(private userService: UserService) {
     userService.getUserProfile().subscribe(userInfo => {
+      // userInfo.skills.map((skill: any) => JSON.parse(skill));
       this.user = userInfo;
+      console.log(userInfo);
     });
    }
 

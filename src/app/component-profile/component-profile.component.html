@@ -3,4 +3,9 @@
   <li>{{user.lastName}}</li>
   <li>{{user.email}}</li>
   <li>{{user.phone}}</li>
+  <li><ul>
+    <li *ngFor="let skill of user.skills">
+      {{skill.name}}
+    </li>
+  </ul></li>
 </ul>

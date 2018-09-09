@@ -12,6 +12,10 @@ export interface User {
   lastName: String;
   email: String;
   phone: String;
+  skills: [{
+    _id: String;
+    name: String;
+  }];
 }
 
 @Injectable({
@@ -38,7 +42,7 @@ export class UserService {
         }
       });
       return data;
-    });;
+    });
   }
   login(email, password) {
     return this.http.post<JWT>(environment.host + '/api/user/login', {
