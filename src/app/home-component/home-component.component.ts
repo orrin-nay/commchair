@@ -15,7 +15,15 @@ export class HomeComponentComponent implements OnInit {
   }
   events: any = [];
 
-  notMobile = this.appComponent.mobileNavVisible;
+	public innerWidth: any;
   
-  ngOnInit() {}
+	notMobile = true;
+	
+	ngOnInit() {
+    this.innerWidth = window.innerWidth;
+	if (this.innerWidth <= 400) this.notMobile = false;
+	}
+	
+	
+  
 }
