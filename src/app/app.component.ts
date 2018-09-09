@@ -41,6 +41,9 @@ export class AppComponent {
 	this.userService.logout();
 	this.router.navigate(['']);
   }
+  goProfile(){
+    this.router.navigate(['profile']);
+  }
 	
 
   // mobileNavVisible = false;

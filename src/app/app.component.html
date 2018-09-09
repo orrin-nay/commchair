@@ -33,6 +33,7 @@
 					<li *ngIf="!userService.isUserLoggedIn()"><a (click)="goGallery()">Gallery</a></li>
 					<li *ngIf="userService.isUserLoggedIn()"><a (click)="goEvent()">Events</a></li>
 					<li *ngIf="userService.isUserLoggedIn()"><a (click)="goLogout()" >Logout</a></li>
+					<li *ngIf="userService.isUserLoggedIn()"><a (click)="goProfile()">Profile</a></li>
 					<li *ngIf="!userService.isUserLoggedIn()"><a (click)="goLogin()" >Login</a></li>
 			  </ul>
 			</nav>		
