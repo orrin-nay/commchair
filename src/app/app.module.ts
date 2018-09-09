@@ -43,6 +43,7 @@ const routes: Routes = [
   {path: 'gallery', component: ComponentGalleryComponent },
   {path: 'register', component: ComponentRegisterComponent},
   {path: 'feed', component: ComponentFeedComponent},
+  {path: 'profile', component: ComponentProfileComponent},
 ];
 
 @NgModule({
