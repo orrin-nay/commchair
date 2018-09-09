@@ -12,7 +12,7 @@ export interface JWT {
 })
 export class UserService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   registerUser(firstName, lastName, email, phone, password) {
     fetch(environment.host + '/api/users/register',
@@ -44,11 +44,17 @@ export class UserService {
     });
   }
   login(email, password) {
-    return this.http.post<JWT>(nvironment.host + '/api/users/login', {
+    return this.http.post<JWT>(environment.host + '/api/user/login', {
       email,
       password
     }).pipe((data) => {
-      console.log(data);
+      data.subscribe(userInfo => {
+        if (userInfo) {
+          if (userInfo.token) {
+            localStorage.setItem('jwt-token', userInfo.token);
+          }
+        }
+      });
       return data;
     });
   }

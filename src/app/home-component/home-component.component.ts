@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { log } from 'util';
 import { EventsService } from '../services/events/events.service';
 
 @Component({
