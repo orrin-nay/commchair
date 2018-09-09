@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +23,7 @@ const MATERIAL_MODULES = [
     ReactiveFormsModule,
     MatFormFieldModule,
     CommonModule,
+    NoopAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
