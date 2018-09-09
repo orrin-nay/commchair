@@ -14,7 +14,7 @@ export class AppComponent {
     this.mobileNavVisible = ! this.mobileNavVisible;
     console.log(this.mobileNavVisible);
   title = 'commchair';
-
+  }
   goHome() {
     this.router.navigate(['']);
   }
