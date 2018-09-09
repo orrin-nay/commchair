@@ -75,10 +75,12 @@ nav a {
 
 .introText h1{
 	font-size:42pt;
+    font-weight: bold;
 }
 
 .introText h3{
 	font-size:24pt;
+    font-weight: bold;
 }
 
 
