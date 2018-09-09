@@ -7,6 +7,14 @@ export interface JWT {
   token: string;
 }
 
+export interface User {
+  firstName: string;
+  lastName: String;
+  email: String;
+  phone: String;
+  password: String;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,32 +23,13 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   registerUser(firstName, lastName, email, phone, password) {
-    fetch(environment.host + '/api/users/register',
-    {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'no-cors', // no-cors, cors, *same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, same-origin, *omit
-        headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrer: 'no-referrer', // no-referrer, *client
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          phone,
-          password
-        }),
-    })
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(tokenJson) {
-      localStorage.setItem('jwt-token', tokenJson.token);
-      return {success: true };
+    return this.http.post<JWT>(environment.host + '/api/users/register',
+     {
+      firstName,
+      lastName,
+      email,
+      phone,
+      password
     });
   }
   login(email, password) {
@@ -63,5 +52,8 @@ export class UserService {
   }
   isUserLoggedIn(): boolean {
     return !!localStorage.getItem('jwt-token');
+  }
+  getUser() {
+    
   }
 }

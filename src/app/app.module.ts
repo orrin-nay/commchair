@@ -19,6 +19,7 @@ import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule, Mat
 
 import { MatCardModule } from '@angular/material/card';
 import { ComponentFeedComponent } from './component-feed/component-feed.component';
+import { ComponentProfileComponent } from './component-profile/component-profile.component';
 
 const MATERIAL_MODULES = [
     BrowserModule,
@@ -53,7 +54,8 @@ const routes: Routes = [
     ComponentGalleryComponent,
     HomeComponentComponent,
     ComponentRegisterComponent,
-    ComponentFeedComponent
+    ComponentFeedComponent,
+    ComponentProfileComponent
   ],
   imports: [
     NgImageSliderModule,
