@@ -10,7 +10,7 @@ import { UserService } from './services/users/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router, private userService:UserService) {
+  constructor(private router: Router, public userService: UserService) {
    }
    
   loggedIn = this.userService.isUserLoggedIn();
