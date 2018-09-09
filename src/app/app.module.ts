@@ -12,9 +12,8 @@ import { ComponentLoginComponent } from './component-login/component-login.compo
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { ComponentRegisterComponent } from './component-register/component-register.component';
-import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule, MatTableModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule, MatTableModule, MatProgressSpinnerModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
-
 
 const MATERIAL_MODULES = [
     BrowserModule,
@@ -58,7 +57,9 @@ const routes: Routes = [
     MATERIAL_MODULES
   ],
 
-  providers: [],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
