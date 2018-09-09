@@ -6,3 +6,67 @@
 .register-form > * {
     margin: 0 auto;
 }
+
+#ugly-ass-form{
+    margin: auto;
+    width: 50%;
+    background-color: white;
+}
+
+#interior-form {
+    width: 100%;
+}
+
+#interior-form mat-form-field:first-of-type {
+    padding-top: 0px;
+}
+
+
+mat-form-field {
+    width: 100%;
+    padding: 0px 15px;
+}
+
+mat-form-field:first-of-type {
+    padding-top:15px;
+}
+
+
+mat-form-field:last-of-type {
+    padding-bottom:0px;
+}
+
+.ng-star-inserted {
+    background-color: white;
+}
+
+.register-form.ng-untouched.ng-pristine.ng-invalid {
+    border: 1px solid black;
+}
+
+#ugly-ass-form button {
+    width: 25%;
+    margin: 15px;
+}
+
+#background {
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-width: 100vh;
+    background-image:url("../../images/tile.png");
+    z-index: -10;
+}
+
+#ugly-ass-form .logo {
+    height: 50px;
+    width: 50px;
+    margin: 15px;
+}
+
+#ugly-ass-form .title{
+	margin-left: 15px;
+}
