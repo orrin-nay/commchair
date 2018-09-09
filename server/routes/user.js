@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt')
 const { JWTSecret, bcryptSalts} = require('../constants')
 const User = require('../models/User')
+const jwt = require('jsonwebtoken')
 
 
 exports.login = (req, res) => {
@@ -32,6 +33,7 @@ exports.login = (req, res) => {
                 res.send({error: err})
                 return
             }
+            console.log(passwordsMatch)
             if(passwordsMatch){
                 makeJWT(user.email, function(err, token) {
                     if(err){
@@ -41,6 +43,10 @@ exports.login = (req, res) => {
                     }
                     res.send({ token })
                 });
+            }
+            else{
+                res.send({error: 'User Not Found'})
+                return
             }
         });
     })
@@ -87,21 +93,27 @@ exports.register = (req, res) => {
                     res.send({error: err})
                     return
                 }
-                const newUser = User({
+                const newUser = new User({
                     firstName,
                     lastName,
                     email,
                     phone,
                     password: hashedPassword
                 })
-                newUser.save();
-                makeJWT(email, function(err, token) {
+                newUser.save((err) =>{
                     if(err){
                         console.log(err)
                         res.send({error: err})
                         return
                     }
-                    res.send({ token })
+                    makeJWT(email, function(err, token) {
+                        if(err){
+                            console.log(err)
+                            res.send({error: err})
+                            return
+                        }
+                        res.send({ token })
+                    });
                 });
             });
         });
