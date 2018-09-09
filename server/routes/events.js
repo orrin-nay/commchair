@@ -1,13 +1,15 @@
 const jwt = require('jsonwebtoken')
 const {
-  jwtSecret
+  JWTSecret
 } = require('../constants')
+const VolunteerOpportunity = require('../models/Events')
 const User = require('../models/User')
 
 module.exports.createEvent = (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
   const name = req.body.name;
   const jwtToken = req.body.jwt
-  jwt.verify(jwtToken, jwtSecret, function (err, userInfo) {
+  jwt.verify(jwtToken, JWTSecret, function (err, userInfo) {
     if (err) {
       console.log(err)
       res.send({
@@ -47,6 +49,7 @@ module.exports.createEvent = (req, res) => {
 }
 
 module.exports.getEvents = (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
   VolunteerOpportunity.find({}, function (err, opps) {
     if (err) {
       console.log(err)
@@ -55,6 +58,6 @@ module.exports.getEvents = (req, res) => {
       })
       return
     }
-    res.send(opps)
+    res.send(JSON.stringify(opps))
   })
 }

@@ -10,9 +10,10 @@ import { ComponentGalleryComponent } from './component-gallery/component-gallery
 import { ComponentLoginComponent } from './component-login/component-login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponentComponent } from './home-component/home-component.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentRegisterComponent } from './component-register/component-register.component';
-import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule, MatTableModule, 
-  MatProgressSpinnerModule } from '@angular/material';
+import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule,
+   MatTableModule, MatProgressSpinnerModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 
 
@@ -50,7 +51,8 @@ const routes: Routes = [
   ],
   imports: [
     MATERIAL_MODULES,
-    RouterModule.forRoot(routes, {useHash: true})
+    RouterModule.forRoot(routes, {useHash: true}),
+    HttpClientModule
   ],
 
   exports: [

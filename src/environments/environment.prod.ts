@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  host: 'ustudentscare.com'
+  host: 'http://ustudentscare.com'
 };

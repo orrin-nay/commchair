@@ -6,10 +6,10 @@
   <body>
     <div class="login-page">  
         <div class="form">
-          <p class="logo"></p>
-          <h1 class="title">Login</h1>
-          <form class="example-form">
-              <mat-form-field class="example-full-width">
+          <img src="Ulogo.png" class='logo'>
+          <h1 class="title">UCare Login</h1>
+          <form class="email-form">
+              <mat-form-field class="form-full-width">
                 <input matInput placeholder="Email" [formControl]="emailFormControl"
                        [errorStateMatcher]="matcher">
                 <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
@@ -20,10 +20,13 @@
                 </mat-error>
               </mat-form-field>
             </form>
-              <mat-form-field>
+              <mat-form-field class="form-full-width">
                   <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
                   <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
               </mat-form-field>
+              <div class="loginButton">
+                  <button mat-raised-button color="accent">Login</button>
+              </div>
         </div>
     </div>
   </body>

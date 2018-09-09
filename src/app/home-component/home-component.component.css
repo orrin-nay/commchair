@@ -4,10 +4,7 @@
     min-height: 50vh;
     display: flex;
     background-attachment: fixed;
-    background-image: url("../../images/tile.png");
 }
-
-
 
 .mission {
     width: 45%;
