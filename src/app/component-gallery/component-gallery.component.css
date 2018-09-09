@@ -14,3 +14,14 @@ ng-image-slider {
 	text-align: center;
 }
 
+
+@media(max-width: 750px){
+ng-image-slider {
+    overflow: hidden;
+}
+#mobileWrapper #gallery{
+	min-width: 100%;
+}
+
+}
+
