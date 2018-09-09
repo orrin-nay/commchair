@@ -16,32 +16,40 @@ export class AppComponent {
   loggedIn = this.userService.isUserLoggedIn();
   title = 'commchair';
   
+  currentPage = "home";
+  
   goHome() {
-    this.router.navigate(['']);
+    this.currentPage = "home";
+	this.router.navigate(['']);
   }
   goRegister() {
+	this.currentPage = "register";
     this.router.navigate(['register']);
   }
   goGallery() {
+	this.currentPage = "gallery";
     this.router.navigate(['gallery']);
   }
   goEvent() {
+	this.currentPage = "event";
     this.router.navigate(['event']);
   }
 
   goLogin() {
+	this.currentPage = "login";
     this.router.navigate(['login']);
   }
   
   goLogout(){
+	this.currentPage = "logout";
 	this.userService.logout();
 	this.router.navigate(['']);
   }
   goProfile(){
+	this.	currentPage = "profile";
     this.router.navigate(['profile']);
   }
   
-
 
   mobileNavVisible = false;
   mobileToggle() {
