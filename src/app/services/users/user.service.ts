@@ -61,4 +61,7 @@ export class UserService {
   logout() {
     localStorage.removeItem('jwt-token');
   }
+  isUserLoggedIn(): boolean {
+    return !!localStorage.getItem('jwt-token');
+  }
 }
