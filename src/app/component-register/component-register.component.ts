@@ -3,7 +3,6 @@ import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators, FormBui
 import { ErrorStateMatcher } from '@angular/material/core';
 import { UserService } from '../services/users/user.service';
 
-
 export class RegularErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
@@ -100,5 +99,6 @@ export class ComponentRegisterComponent implements OnInit {
     let phone = this.registerForm.value.phone;
     this.userService.registerUser(firstName, lastName, email, phone, this.password)
       .subscribe(e => console.log(e));
-  }
+    }
+
 }
