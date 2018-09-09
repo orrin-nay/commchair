@@ -49,3 +49,17 @@ tr td:last-of-type {
     padding: 15px;
     box-sizing: unset;
 }
+
+@media(max-width: 750px){
+    #mobileWrapper table{
+        width: 100%;
+        padding: 0px;
+    }
+    #mobileWrapper #background{
+        min-width: 100%;
+    }
+
+    #mobileWrapper td{
+        width: 100%;
+    }
+}

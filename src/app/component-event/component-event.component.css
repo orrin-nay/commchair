@@ -64,3 +64,19 @@ h1 {
     margin: 10px 0px;
 }
 
+@media(max-width: 750px){
+    #mobileWrapper #eventsForm{
+        width: 100%;
+        margin: 0px;
+        min-height: 100vh;
+    }
+
+    #mobileWrapper #eventWrapper{
+        display: block;
+        margin: 0px;
+    }
+
+    #mobileWrapper #background{
+        min-width: 100%;
+    }
+}
