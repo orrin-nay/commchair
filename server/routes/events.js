@@ -4,6 +4,7 @@ const {
 } = require('../constants')
 const VolunteerOpportunity = require('../models/Events')
 const User = require('../models/User')
+const nodemailer = require('nodemailer');
 
 module.exports.createEvent = (req, res) => {
   res.setHeader('Content-Type', 'application/json');
@@ -138,6 +139,36 @@ module.exports.subscribe = (req, res) => {
         // opp.subscribers.push(subUser._id);
         // opp.save();
         console.log(opp);
+        console.log(subUser.email);
+
+
+        /**
+         * copied from nodemail website 
+         */
+
+
+        var transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'richardtimpson80@gmail.com',
+            pass: 'hetfield32'
+          }
+        });
+
+        var mailOptions = {
+          from: 'richardtimpson80@gmail.com',
+          to: subUser.email,
+          subject: `Thanks for subscribing to our${opp.name} event!`,
+          text: `${opp.description}`
+        };
+
+        transporter.sendMail(mailOptions, function(error, info){
+          if (error) {
+            console.log(error);
+          } else {
+            console.log('Email sent: ' + info.response);
+          }
+        });
         res.send({
           succes: true
         })
