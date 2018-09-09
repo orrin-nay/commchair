@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupDirective, NgForm, Validators, FormBuilder } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { UserService } from '../services/users/user.service';
 
 
 export class RegularErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
-    console.log(control);
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
 }
@@ -14,7 +14,6 @@ export class PasswordErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const invalidCtrl = !!(control && control.invalid && control.parent.dirty);
     const invalidParent = !!(control && control.parent && control.parent.invalid && control.parent.dirty);
-    console.log(control);
     return (invalidCtrl|| invalidParent);
   }
 }
@@ -28,13 +27,17 @@ export class PasswordErrorStateMatcher implements ErrorStateMatcher {
 })
 
 export class ComponentRegisterComponent implements OnInit {
-  myString: string;
   passwordForm: FormGroup;
+  password: string;
+  passwordConf: string;
   passwordConfirmationForm: string;
   registerForm: FormGroup;
   regularMatcher = new RegularErrorStateMatcher();
   passwordMatcher = new PasswordErrorStateMatcher();
-  constructor(private formBuilder: FormBuilder) { 
+  constructor(
+    private formBuilder: FormBuilder,
+    private userService: UserService
+    ) { 
     this.registerForm = this.formBuilder.group({
       firstName: ['',[
         Validators.required,
@@ -65,13 +68,11 @@ export class ComponentRegisterComponent implements OnInit {
         validator: this.checkPasswords,
       }
     )
-  }
+    }
   
   ngOnInit() {
     console.log(this.registerForm.controls.firstNameFormControl);
     
-  }
-  printError() {
   }
   checkPasswords (group: FormGroup) {
     let pass = group.controls.password.value;
@@ -92,12 +93,13 @@ export class ComponentRegisterComponent implements OnInit {
     let returnValue = isValid ? null: {notValidPhone: true}
     return returnValue
   }
-  // passwordInvalid () {
-  //   console.log("running check password");
-  //   console.log(this.passwordForm);
-  //   console.log(this.passwordConfirmationForm);
-  //   let returnValue = this.passwordForm === this.passwordConfirmationForm ? false : true;
-  //   console.log(returnValue);
-  //   return returnValue
-  // }
+  submit( form: NgForm) {
+    let email = form.value.email;
+    let firstName = form.value.firstName;
+    let lastName = form.value.lastName;
+    let phone = form.value.phone;
+    this.userService.registerUser(firstName, lastName, email, phone, this.password);
+    console.log(this.password);
+    console.log(this.passwordConf);
+  }
 }

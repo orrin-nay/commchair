@@ -1,5 +1,4 @@
-<form class ="register-form" [formGroup]="registerForm">
-
+<form #Form1="ngForm" (ngSubmit)="submit(registerForm)"  class ="register-form" [formGroup]="registerForm">
   <mat-form-field class="form-fields">
     <input matInput placeholder="First Name" formControlName ="firstName" [errorStateMatcher]="regularMatcher">
 
@@ -41,22 +40,24 @@
       Phone number is <strong>required.</strong>
     </mat-error>
   </mat-form-field>
-<form class = 'register-form' [formGroup]='passwordForm'>
-  <mat-form-field class="form-fields">
-      <input matInput placeholder="Password" type='password' name="passwordForm" formControlName ="password" [errorStateMatcher] ="passwordMatcher">
-
-      <mat-error *ngIf="passwordForm.controls.password.hasError('required')">
-        Password is <strong>required</strong>
-      </mat-error>
-  </mat-form-field>
-
-  <mat-form-field class="form-fields">
-      <input matInput placeholder="Password Confirmation" type='password' name="passwordConfirmationForm" formControlName ="passwordConfirmation" [errorStateMatcher] ="passwordMatcher">
-
-      <mat-error *ngIf="passwordForm.hasError('notSame')">
-        Passwords do not match
-      </mat-error>
-  </mat-form-field>
-
-</form>
+  <form class ='register-form' #Form2="ngForm" [formGroup]='passwordForm' (ngSubmit) ="submit(registerForm)">
+    <mat-form-field class="form-fields">
+        <input matInput placeholder="Password" type='password' [(ngModel)]="password" name="passwordForm" formControlName ="password" [errorStateMatcher] ="passwordMatcher">
+  
+        <mat-error *ngIf="passwordForm.controls.password.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="form-fields">
+        <input matInput placeholder="Password Confirmation" [(ngModel)]="passwordConf" type='password' name="passwordConfirmationForm" formControlName ="passwordConfirmation" [errorStateMatcher] ="passwordMatcher">
+  
+        <mat-error *ngIf="passwordForm.hasError('notSame')">
+          Passwords do not match
+        </mat-error>
+    </mat-form-field>
+  </form>
+  <button matButton type='submit'>
+    Submit
+  </button>
 </form>
