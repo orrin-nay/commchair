@@ -1,30 +1,31 @@
 <html>
-  <head>
-    <title>UCare Login</title>
-  </head>
 
-  <body>
-    <div class="login-page">  
-        <div class="form">
-          <p class="logo"></p>
-          <h1 class="title">Login</h1>
-          <form class="example-form">
-              <mat-form-field class="example-full-width">
-                <input matInput placeholder="Email" [formControl]="emailFormControl"
-                       [errorStateMatcher]="matcher">
-                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                  Please enter a valid email address
-                </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
-                  Email is <strong>required</strong>
-                </mat-error>
-              </mat-form-field>
-            </form>
-              <mat-form-field>
-                  <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
-                  <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
-              </mat-form-field>
-        </div>
+<body>
+  <div class="login-page">
+    <div class="form">
+      <img src="../../assets/img/Ulogo.png" class="logo">
+      <h1 class="title">UCare Login</h1>
+      <form class="email-form" (ngSubmit)="login()">
+
+        <mat-form-field class="form-full-width">
+          <input matInput placeholder="Email" [formControl]="emailFormControl">
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Email is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </form>
+      <mat-form-field class="form-full-width">
+        <input name="password" matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+          [(ngModel)]="password" #ctrl="ngModel">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+      </mat-form-field>
+      <div class="loginButton">
+        <button mat-raised-button color="accent" (click)="login()">Login</button>
+      </div>
+      <p>{{this.error}}</p>
     </div>
-  </body>
-</html>
+  </div>
+</body>

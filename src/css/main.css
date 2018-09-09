@@ -37,6 +37,7 @@ nav a {
 #nav a:hover, #nav a:focus{
 	text-decoration:underline;
 	color: #cc0000;
+    cursor: pointer;
 }	
 
 
@@ -53,7 +54,7 @@ nav a {
 
 .introBody {
     min-height: 70vh;
-    min-width: 100vw;
+    min-width: 100%;
     position: relative;
     display: flex;
     align-items: center;
@@ -74,10 +75,12 @@ nav a {
 
 .introText h1{
 	font-size:42pt;
+    font-weight: bold;
 }
 
 .introText h3{
 	font-size:24pt;
+    font-weight: bold;
 }
 
 
@@ -109,4 +112,7 @@ body strong {
 }
 
 
+.feed ul {
+    margin: 0;
+}
 

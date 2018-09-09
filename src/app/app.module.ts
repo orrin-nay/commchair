@@ -1,3 +1,4 @@
+import { NgImageSliderModule } from 'ng-image-slider';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,9 +12,12 @@ import { ComponentGalleryComponent } from './component-gallery/component-gallery
 import { ComponentLoginComponent } from './component-login/component-login.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponentComponent } from './home-component/home-component.component';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentRegisterComponent } from './component-register/component-register.component';
-import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule, MatTableModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule,
+   MatTableModule, MatProgressSpinnerModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
+import { ComponentFeedComponent } from './component-feed/component-feed.component';
 
 
 const MATERIAL_MODULES = [
@@ -39,6 +43,7 @@ const routes: Routes = [
   {path: 'login', component: ComponentLoginComponent },
   {path: 'gallery', component: ComponentGalleryComponent },
   {path: 'register', component: ComponentRegisterComponent},
+  {path: 'feed', component: ComponentFeedComponent},
 ];
 
 @NgModule({
@@ -47,11 +52,14 @@ const routes: Routes = [
     ComponentLoginComponent,
     ComponentGalleryComponent,
     HomeComponentComponent,
-    ComponentRegisterComponent
+    ComponentRegisterComponent,
+    ComponentFeedComponent
   ],
   imports: [
+    NgImageSliderModule,
     MATERIAL_MODULES,
-    RouterModule.forRoot(routes, {useHash: true})
+    RouterModule.forRoot(routes, {useHash: true}),
+    HttpClientModule
   ],
 
   exports: [

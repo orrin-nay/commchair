@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../services/events/events.service';
 
 @Component({
-  selector: 'app-home-component',
-  templateUrl: './home-component.component.html',
-  styleUrls: ['./home-component.component.css']
+  selector: 'app-component-feed',
+  templateUrl: './component-feed.component.html',
+  styleUrls: ['./component-feed.component.css']
 })
-export class HomeComponentComponent implements OnInit {
+export class ComponentFeedComponent implements OnInit {
+
   constructor(private eventsService: EventsService) {
     eventsService.getEvents().subscribe(events => {
       this.events = events;
@@ -14,5 +15,7 @@ export class HomeComponentComponent implements OnInit {
   }
   events: any = [];
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
 }
