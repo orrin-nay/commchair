@@ -29,13 +29,14 @@
 	<div id="navwrapper">
 		<nav id="nav" *ngIf="!mobileNavVisible">
 			  <ul>
-					<li><a (click)="goHome()">Home</a></li>
-					<li *ngIf="!userService.isUserLoggedIn()"><a (click)="goGallery()">Gallery</a></li>
-					<li *ngIf="userService.isUserLoggedIn()"><a (click)="goEvent()">Events</a></li>
-					<li *ngIf="userService.isUserLoggedIn()"><a (click)="goProfile()">Profile</a></li>
-					<li *ngIf="userService.isUserLoggedIn()"><a (click)="goLogout()" >Logout</a></li>
-					<li *ngIf="!userService.isUserLoggedIn()"><a (click)="goRegister()">Sign up</a></li>
-					<li *ngIf="!userService.isUserLoggedIn()"><a (click)="goLogin()" >Login</a></li>
+					<li><span *ngIf="currentPage=='home'" class="underline"></span><a (click)="goHome()">Home</a></li>
+					<li *ngIf="!userService.isUserLoggedIn()"><span *ngIf="currentPage=='gallery'" class="underline"></span><a (click)="goGallery()">Gallery</a></li>
+
+					<li *ngIf="userService.isUserLoggedIn()"><span *ngIf="currentPage=='event'" class="underline"></span><a (click)="goEvent()">Events</a></li>
+					<li *ngIf="userService.isUserLoggedIn()"><span *ngIf="currentPage=='profile'" class="underline"></span><a (click)="goProfile()">Profile</a></li>
+					<li *ngIf="userService.isUserLoggedIn()"><span *ngIf="currentPage=='logout'" class="underline"></span><a (click)="goLogout()" >Logout</a></li>
+					<li *ngIf="!userService.isUserLoggedIn()"><span *ngIf="currentPage=='register'" class="underline"></span><a (click)="goRegister()">Sign up</a></li>
+					<li *ngIf="!userService.isUserLoggedIn()"><span *ngIf="currentPage=='login'" class="underline"></span><a (click)="goLogin()" >Login</a></li>
 			  </ul>
 			</nav>		
 	</div>

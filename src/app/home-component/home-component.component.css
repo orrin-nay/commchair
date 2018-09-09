@@ -13,6 +13,10 @@
     padding: 25px;
 }
 
+#footwrapper .back2Tops p{
+	color:white;
+}
+
 .mission p{
 	font-size: 16pt
 }
@@ -66,13 +70,6 @@
     vertical-align: baseline;
 }
 
-#feedBox td:first-of-type {
-    border-right: 2px solid;
-}
-
-#feedBox td:last-of-type{
-	border-left: 2px solid;
-}
 
 #feedBox td:first-of-type{
 	text-align: center;

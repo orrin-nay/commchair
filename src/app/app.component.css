@@ -14,6 +14,10 @@
     height:50px;
 }
 
+.underline + a{
+    text-decoration: underline;
+}
+
 #nav li {
     display:inline;
     padding: 15px;
