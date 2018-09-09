@@ -40,7 +40,6 @@ export class ComponentLoginComponent implements OnInit {
      console.log(userInfo);
      if (userInfo.token) {
       this.router.navigate(['feed']);
-		loggedIn = true;
      }
    });
   }
