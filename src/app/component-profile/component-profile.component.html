@@ -11,7 +11,7 @@
         <tr class="skills"><td>Skills:</td><td><ul>
         	<br>
             <li *ngFor="let skill of user.skills">
-              {{skill.name}} <button class="X" (click)="removeSkill(skill._id)">x</button>
+             <button class="X" (click)="removeSkill(skill._id)">x</button> {{skill.name}} 
             </li>
             
           </ul></td></tr>

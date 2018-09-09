@@ -58,8 +58,6 @@ tr td:last-of-type {
 }
 
 .X {
-    clear: both;
-    float: right;
     background-color: transparent;
     border: 0px;
     color: red;
@@ -75,14 +73,31 @@ tr td:last-of-type {
 
 @media(max-width: 750px){
     #mobileWrapper table{
-        width: 100%;
-        padding: 0px;
+    width: 100%;
+    padding: 10px;
+    margin: 0px;
     }
+
     #mobileWrapper #background{
         min-width: 100%;
     }
 
+    #mobileWrapper {
+        background-color: white;
+    }
+
+    .skills td:first-of-type {
+        display: none;
+    }
+
     #mobileWrapper td{
         width: 100%;
+        font-size: 12pt;
+    }
+
+    #mobileWrapper h1{
+        text-align: center;
+        margin: 10px;
+        margin-bottom: 20px;
     }
 }
