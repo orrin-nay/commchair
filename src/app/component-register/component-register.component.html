@@ -1,4 +1,11 @@
+
+<div id="background"></div>
+
+<div id="ugly-ass-form">
+  
 <form #Form1="ngForm" (ngSubmit)="submit(registerForm)"  class ="register-form" [formGroup]="registerForm">
+  <img src="../../assets/img/Ulogo.png" class="logo">
+  <h1 class="title">UCare Registration</h1>
   <mat-form-field class="form-fields">
     <input matInput placeholder="First Name" formControlName ="firstName" [errorStateMatcher]="regularMatcher">
 
@@ -40,7 +47,7 @@
       Phone number is <strong>required.</strong>
     </mat-error>
   </mat-form-field>
-  <form class ='register-form' #Form2="ngForm" [formGroup]='passwordForm' (ngSubmit) ="submit(registerForm)">
+  <form id="interior-form" class ='register-form' #Form2="ngForm" [formGroup]='passwordForm' (ngSubmit) ="submit(registerForm)">
     <mat-form-field class="form-fields">
         <input matInput placeholder="Password" type='password' [(ngModel)]="password" name="passwordForm" formControlName ="password" [errorStateMatcher] ="passwordMatcher">
   
@@ -57,7 +64,9 @@
         </mat-error>
     </mat-form-field>
   </form>
-  <button matButton type='submit'>
+  <button mat-raised-button color="accent" type='submit'>
     Submit
   </button>
 </form>
+
+</div>
