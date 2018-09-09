@@ -7,9 +7,19 @@
 
 .form {
     margin: auto;
-    width: 15%;
+    width: 45%;
     border: 1px solid black;
     padding: 20px;
+    background-color: whitesmoke;
+    max-width: 500px;
+}
+
+body .email-form {
+    min-width: 100%;
+}
+
+strong{
+    color:red;
 }
 
 .login-page {

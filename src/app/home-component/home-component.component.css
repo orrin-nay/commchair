@@ -13,6 +13,14 @@
     padding: 25px;
 }
 
+.mission p{
+	font-size: 16pt
+}
+
+.mission h3{
+	font-size: 30pt;
+}
+
 
 /*** Feed style***/
 .feed{
