@@ -1,130 +1,201 @@
 const bcrypt = require('bcrypt')
-const { JWTSecret, bcryptSalts} = require('../constants')
+const {
+  JWTSecret,
+  bcryptSalts
+} = require('../constants')
 const User = require('../models/User')
 const jwt = require('jsonwebtoken')
 
 
 exports.login = (req, res) => {
-    const email = req.body.email
-    const password = req.body.password
+  const email = req.body.email
+  const password = req.body.password
 
-    const wasEmailSent = !!email
-    const wasPasswordSent = !!password
-    if(!wasEmailSent || !wasPasswordSent){
-        res.send({error: 'Please include and email and a password'})
-        return
-    }
-    User.findOne({email: email}, (err, user) => {
-        if(err){
-            console.log(err)
-            res.send({error: err})
-            return
-        }
-        const doesUserExist = !!user
-        if(!doesUserExist){
-            res.send({error: "User Not Found"})
-            return
-        }
-
-        const hashedPassword = user.password
-        bcrypt.compare(password, hashedPassword, function(err, passwordsMatch) {
-            if(err){
-                console.log(err)
-                res.send({error: err})
-                return
-            }
-            console.log(passwordsMatch)
-            if(passwordsMatch){
-                makeJWT(user.email, function(err, token) {
-                    if(err){
-                        console.log(err)
-                        res.send({error: err})
-                        return
-                    }
-                    res.send({ token })
-                });
-            }
-            else{
-                res.send({error: 'User Not Found'})
-                return
-            }
-        });
+  const wasEmailSent = !!email
+  const wasPasswordSent = !!password
+  if (!wasEmailSent || !wasPasswordSent) {
+    res.send({
+      error: 'Please include and email and a password'
     })
+    return
+  }
+  User.findOne({
+    email: email
+  }, (err, user) => {
+    if (err) {
+      console.log(err)
+      res.send({
+        error: err
+      })
+      return
+    }
+    const doesUserExist = !!user
+    if (!doesUserExist) {
+      res.send({
+        error: "User Not Found"
+      })
+      return
+    }
+
+    const hashedPassword = user.password
+    bcrypt.compare(password, hashedPassword, function (err, passwordsMatch) {
+      if (err) {
+        console.log(err)
+        res.send({
+          error: err
+        })
+        return
+      }
+      console.log(passwordsMatch)
+      if (passwordsMatch) {
+        makeJWT(user.email, function (err, token) {
+          if (err) {
+            console.log(err)
+            res.send({
+              error: err
+            })
+            return
+          }
+          res.send({
+            token
+          })
+        });
+      } else {
+        res.send({
+          error: 'User Not Found'
+        })
+        return
+      }
+    });
+  })
 }
 
 exports.register = (req, res) => {
-    const firstName = req.body.password
-    const lastName = req.body.password
-    const email = req.body.email
-    const phone = req.body.password
-    const password = req.body.password
+  const firstName = req.body.firstName
+  const lastName = req.body.lastName
+  const email = req.body.email
+  const phone = req.body.phone
+  const password = req.body.password
 
-    const wasFirstNameSent = !!firstName
-    const wasLastNameSent = !!lastName
-    const wasEmailSent = !!email
-    const wasPhoneSent = !!phone
-    const wasPasswordSent = !!password
-    
-    if(!wasFirstNameSent || !wasLastNameSent || !wasEmailSent
-        || !wasPhoneSent || !wasPasswordSent){
-        res.send({error: 'Please include an firstName, lastName, email, phone, and a password'})
-        return
-    }
-    User.findOne({email: email}, (err, user) => {
-        if(err){
-            console.log(err)
-            res.send({error: err})
-            return
-        }
-        const doesUserExist = !!user
-        if(doesUserExist){
-            res.send({error: "User Already Exist"})
-            return
-        }
-        bcrypt.genSalt(bcryptSalts, function(err, salt) {
-            if(err){
-                console.log(err)
-                res.send({error: err})
-                return
-            }
-            bcrypt.hash(password, salt, function(err, hashedPassword) {
-                if(err){
-                    console.log(err)
-                    res.send({error: err})
-                    return
-                }
-                const newUser = new User({
-                    firstName,
-                    lastName,
-                    email,
-                    phone,
-                    password: hashedPassword
-                })
-                newUser.save((err) =>{
-                    if(err){
-                        console.log(err)
-                        res.send({error: err})
-                        return
-                    }
-                    makeJWT(email, function(err, token) {
-                        if(err){
-                            console.log(err)
-                            res.send({error: err})
-                            return
-                        }
-                        res.send({ token })
-                    });
-                });
-            });
-        });
+  const wasFirstNameSent = !!firstName
+  const wasLastNameSent = !!lastName
+  const wasEmailSent = !!email
+  const wasPhoneSent = !!phone
+  const wasPasswordSent = !!password
+
+  if (!wasFirstNameSent || !wasLastNameSent || !wasEmailSent ||
+    !wasPhoneSent || !wasPasswordSent) {
+    res.send({
+      error: 'Please include an firstName, lastName, email, phone, and a password'
     })
+    return
+  }
+  User.findOne({
+    email: email
+  }, (err, user) => {
+    if (err) {
+      console.log(err)
+      res.send({
+        error: err
+      })
+      return
+    }
+    const doesUserExist = !!user
+    if (doesUserExist) {
+      res.send({
+        error: "User Already Exist"
+      })
+      return
+    }
+    bcrypt.genSalt(bcryptSalts, function (err, salt) {
+      if (err) {
+        console.log(err)
+        res.send({
+          error: err
+        })
+        return
+      }
+      bcrypt.hash(password, salt, function (err, hashedPassword) {
+        if (err) {
+          console.log(err)
+          res.send({
+            error: err
+          })
+          return
+        }
+        const newUser = new User({
+          firstName,
+          lastName,
+          email,
+          phone,
+          password: hashedPassword
+        })
+        newUser.save((err) => {
+          if (err) {
+            console.log(err)
+            res.send({
+              error: err
+            })
+            return
+          }
+          makeJWT(email, function (err, token) {
+            if (err) {
+              console.log(err)
+              res.send({
+                error: err
+              })
+              return
+            }
+            res.send({
+              token
+            })
+          });
+        });
+      });
+    });
+  })
 }
 
-const makeJWT = (email, callback) =>{
-    jwt.sign({ email: email }, JWTSecret, function(err, token) {
-        if(err){
-            callback(err)
-        }
-        callback(undefined, token)
-    });
+module.exports.profile = (req, res) => {
+  const jwtToken = req.body.jwt
+  jwt.verify(jwtToken, JWTSecret, function (err, userInfo) {
+    if (err) {
+      console.log(err)
+      res.send({
+        error: err
+      })
+      return
+    }
+    User.findOne({
+      email: userInfo.email
+    }, (err, user) => {
+      if (err) {
+        console.log(err)
+        res.send({
+          error: err
+        })
+        return
+      }
+      const doesUserExist = !!user
+      if (!doesUserExist) {
+        res.send({
+          error: "Issue"
+        })
+        return
+      }
+      user.password = undefined;
+      res.send(user)
+    })
+  })
+}
+
+const makeJWT = (email, callback) => {
+  jwt.sign({
+    email: email
+  }, JWTSecret, function (err, token) {
+    if (err) {
+      callback(err)
+    }
+    callback(undefined, token)
+  });
 }
