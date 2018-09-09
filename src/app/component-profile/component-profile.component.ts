@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/users/user.service';
+import { UserService, User } from '../services/users/user.service';
 
 @Component({
   selector: 'app-component-profile',
@@ -8,8 +8,11 @@ import { UserService } from '../services/users/user.service';
 })
 export class ComponentProfileComponent implements OnInit {
 
+  user: User;
   constructor(private userService: UserService) {
-    
+    userService.getUserProfile().subscribe(userInfo => {
+      this.user = userInfo;
+    });
    }
 
   ngOnInit() {
