@@ -3,6 +3,7 @@
 #nav {
     display: flex;
     justify-content:space-evenly;
+    align-items: center;
     width: 100%;
     position: fixed;
     top: 0;
@@ -10,6 +11,7 @@
     right: 0;
     z-index: 1000;
     background-color: #646464b3;
+    height:50px;
 }
 
 #nav ul {
@@ -19,9 +21,9 @@
 }
 
 #nav li {
-    display: table-cell;
+    display:inline;
     padding: 15px;
-    width: 25%;
+    margin: 0px 10px 0px 10px;
 	text-align: center;
 }
 
