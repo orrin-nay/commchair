@@ -1,3 +1,18 @@
-<p>
-  component-event works!
-</p>
+<h1> Add your event here!</h1>
+
+<form #eventForm="ngForm" (ngSubmit)="submit(eventForm)" class="event-form" [formGroup]="form">
+  <mat-form-field class ="form-fields">
+    <input matInput placeholder="name" formControlName="name">
+  </mat-form-field>
+  <mat-form-field class="form-fields">
+    <input matInput placeholder="description" formControlName="description">
+
+  </mat-form-field>
+  <mat-form-field class="form-fields">
+    <input matInput placeholder="organization" formControlName="organization">
+
+  </mat-form-field>
+  <button type="submit">
+    Add Event
+  </button>
+</form>

@@ -24,6 +24,9 @@ export class AppComponent {
   goGallery() {
     this.router.navigate(['gallery']);
   }
+  goEvent() {
+    this.router.navigate(['event']);
+  }
 
   goLogin() {
     this.router.navigate(['login']);

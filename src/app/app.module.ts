@@ -44,6 +44,7 @@ const routes: Routes = [
   {path: '', component: HomeComponentComponent },
   {path: 'login', component: ComponentLoginComponent },
   {path: 'gallery', component: ComponentGalleryComponent },
+  {path: 'event', component:ComponentEventComponent},
   {path: 'register', component: ComponentRegisterComponent},
   {path: 'feed', component: ComponentFeedComponent},
   {path: 'profile', component: ComponentProfileComponent},
