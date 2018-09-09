@@ -3,7 +3,7 @@
 
 <div id="ugly-ass-form">
   
-<form #Form1="ngForm" (ngSubmit)="submit(registerForm)"  class ="register-form" [formGroup]="registerForm">
+<form (ngSubmit)="submit()"  class ="register-form" [formGroup]="registerForm">
   <img src="../../assets/img/Ulogo.png" class="logo">
   <h1 class="title">UCare Registration</h1>
   <mat-form-field class="form-fields">
@@ -47,7 +47,7 @@
       Phone number is <strong>required.</strong>
     </mat-error>
   </mat-form-field>
-  <form id="interior-form" class ='register-form' #Form2="ngForm" [formGroup]='passwordForm' (ngSubmit) ="submit(registerForm)">
+  <form id="interior-form" class ='register-form' [formGroup]='passwordForm' (ngSubmit) ="submit()">
     <mat-form-field class="form-fields">
         <input matInput placeholder="Password" type='password' [(ngModel)]="password" name="passwordForm" formControlName ="password" [errorStateMatcher] ="passwordMatcher">
   

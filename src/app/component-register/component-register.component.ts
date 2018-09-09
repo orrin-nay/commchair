@@ -93,14 +93,12 @@ export class ComponentRegisterComponent implements OnInit {
     let returnValue = isValid ? null: {notValidPhone: true}
     return returnValue
   }
-  submit( form: NgForm) {
-    let email = form.value.email;
-    let firstName = form.value.firstName;
-    let lastName = form.value.lastName;
-    let phone = form.value.phone;
+  submit() {
+    let email = this.registerForm.value.email;
+    let firstName = this.registerForm.value.firstName;
+    let lastName = this.registerForm.value.lastName;
+    let phone = this.registerForm.value.phone;
     this.userService.registerUser(firstName, lastName, email, phone, this.password)
       .subscribe(e => console.log(e));
-    console.log(this.password);
-    console.log(this.passwordConf);
   }
 }
