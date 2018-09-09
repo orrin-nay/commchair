@@ -1,9 +1,15 @@
 <div class="feed">
-  <ul *ngIf="events">
-    <li *ngFor="let event of events">
-        {{event.organization}}
-        {{event.name}}
-        {{event.description}}
-    </li>
-  </ul>
+  <table *ngIf="events" id="feedBox">
+      <tr>
+        <td>Event Organizer</td>
+        <td>Event Name</td>
+        <td>Event Description</td>
+      </tr>
+    <tr *ngFor="let event of events" class="Volunteerevent">
+            <td>{{event.organization}}</td>
+            <td>{{event.name}}</td>
+            <td>{{event.description}}</td>
+          
+    </tr>
+  </table>
 </div>
