@@ -1,6 +1,7 @@
 import { NgImageSliderModule } from 'ng-image-slider';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,12 +14,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { HomeComponentComponent } from './home-component/home-component.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentRegisterComponent } from './component-register/component-register.component';
-import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule,
-   MatTableModule, MatProgressSpinnerModule } from '@angular/material';
+
+import { MatInputModule, MatToolbarModule, MatButtonModule, MatDialogModule, MatTableModule, MatProgressSpinnerModule, ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material';
+
 import { MatCardModule } from '@angular/material/card';
 import { ComponentFeedComponent } from './component-feed/component-feed.component';
 import { ComponentProfileComponent } from './component-profile/component-profile.component';
-
+import { ComponentEventComponent } from './component-event/component-event.component';
 
 const MATERIAL_MODULES = [
     BrowserModule,
@@ -27,6 +29,7 @@ const MATERIAL_MODULES = [
     ReactiveFormsModule,
     MatFormFieldModule,
     CommonModule,
+    NoopAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
@@ -41,6 +44,7 @@ const routes: Routes = [
   {path: '', component: HomeComponentComponent },
   {path: 'login', component: ComponentLoginComponent },
   {path: 'gallery', component: ComponentGalleryComponent },
+  {path: 'event', component:ComponentEventComponent},
   {path: 'register', component: ComponentRegisterComponent},
   {path: 'feed', component: ComponentFeedComponent},
   {path: 'profile', component: ComponentProfileComponent},
@@ -54,7 +58,8 @@ const routes: Routes = [
     HomeComponentComponent,
     ComponentRegisterComponent,
     ComponentFeedComponent,
-    ComponentProfileComponent
+    ComponentProfileComponent,
+    ComponentEventComponent
   ],
   imports: [
     NgImageSliderModule,
@@ -67,7 +72,9 @@ const routes: Routes = [
     MATERIAL_MODULES
   ],
 
-  providers: [],
+  providers: [
+    {provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -22,7 +22,7 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   registerUser(firstName, lastName, email, phone, password) {
-    return this.http.post<JWT>(environment.host + '/api/users/register',
+    return this.http.post<JWT>(environment.host + '/api/user/register',
      {
       firstName,
       lastName,
@@ -52,16 +52,11 @@ export class UserService {
   isUserLoggedIn(): boolean {
     return !!localStorage.getItem('jwt-token');
   }
-<<<<<<< HEAD
-  getUser() {
-    
-=======
   getUserProfile() {
     const jwt =  localStorage.getItem('jwt-token');
     return this.http.post<User>(environment.host + '/api/user/profile',
     {
       jwt
     });
->>>>>>> orrins_dev
   }
 }

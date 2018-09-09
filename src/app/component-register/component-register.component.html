@@ -1,19 +1,63 @@
-<div class ="register-form">
-  <mat-form-field>
-    <input matInput placeholder="input">
+<form #Form1="ngForm" (ngSubmit)="submit(registerForm)"  class ="register-form" [formGroup]="registerForm">
+  <mat-form-field class="form-fields">
+    <input matInput placeholder="First Name" formControlName ="firstName" [errorStateMatcher]="regularMatcher">
+
+    <mat-error *ngIf="registerForm.controls.firstName.hasError('required')">
+      First name is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="input">
+
+  <mat-form-field class="form-fields">
+    <input matInput placeholder="Last Name" formControlName="lastName" [errorStateMatcher]="regularMatcher">
+
+    <mat-error *ngIf="registerForm.controls.lastName.hasError('required')">
+      Last name is <strong>required</strong>
+    </mat-error>
   </mat-form-field>
+
   <mat-form-field>
-      <input matInput placeholder="input">
+
+    <input matInput placeholder="Email" formControlName="email" [errorStateMatcher]="regularMatcher">
+
+    <mat-error *ngIf="registerForm.controls.email.hasError('email') && !registerForm.controls.email.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+
+    <mat-error *ngIf="registerForm.controls.email.hasError('required')">
+      Email is <strong>required</strong>
+    </mat-error>
+
+  </mat-form-field>
+
+  <mat-form-field class="form-fields" >
+    <input name="phone" type ="phone" matInput placeholder="Phone" formControlName="phone" [errorStateMatcher]="regularMatcher">
+
+    <mat-error *ngIf="registerForm.hasError('notValidPhone')">
+      Please enter a valid phone number
+    </mat-error>
+
+    <mat-error *ngIf="registerForm.controls.phone.hasError('required')">
+      Phone number is <strong>required.</strong>
+    </mat-error>
+  </mat-form-field>
+  <form class ='register-form' #Form2="ngForm" [formGroup]='passwordForm' (ngSubmit) ="submit(registerForm)">
+    <mat-form-field class="form-fields">
+        <input matInput placeholder="Password" type='password' [(ngModel)]="password" name="passwordForm" formControlName ="password" [errorStateMatcher] ="passwordMatcher">
+  
+        <mat-error *ngIf="passwordForm.controls.password.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="input">
+  
+    <mat-form-field class="form-fields">
+        <input matInput placeholder="Password Confirmation" [(ngModel)]="passwordConf" type='password' name="passwordConfirmationForm" formControlName ="passwordConfirmation" [errorStateMatcher] ="passwordMatcher">
+  
+        <mat-error *ngIf="passwordForm.hasError('notSame')">
+          Passwords do not match
+        </mat-error>
     </mat-form-field>
-    <mat-form-field>
-        <input matInput placeholder="input">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="input">
-      </mat-form-field>
+  </form>
+  <button matButton type='submit'>
+    Submit
+  </button>
+</form>

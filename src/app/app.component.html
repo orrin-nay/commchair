@@ -27,12 +27,19 @@
 	  </div>
 	
 	
-		  <nav id="nav">
+		  <nav id="nav" *ngIf="userService.isUserLoggedIn()">
 			  <ul>
-			<li><a (click)="goHome()">Home</a></li>
-		 	<li><a (click)="goGallery()">Gallery</a></li>
-			<li><a (click)="goRegister()">Sign up</a></li>
-			<li><a (click)="goLogin()">Login</a></li>
+				<li><a (click)="goHome()">Home</a></li>
+		 		<li><a (click)="goGallery()">Gallery</a></li>
+				<li><a (click)="goLogout()" >Logout</a></li>
+			  </ul>
+		  </nav>
+		  <nav id="nav" *ngIf="!userService.isUserLoggedIn()">
+			  <ul>
+				<li><a (click)="goHome()">Home</a></li>
+		 		<li><a (click)="goGallery()">Gallery</a></li>
+				<li><a (click)="goRegister()">Sign up</a></li>
+				<li><a (click)="goLogin()" >Login</a></li>
 			  </ul>
 		  </nav>
 		
