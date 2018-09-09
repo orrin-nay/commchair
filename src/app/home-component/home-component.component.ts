@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../services/events/events.service';
 import {AppComponent} from '../app.component';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-component',
@@ -8,7 +9,7 @@ import {AppComponent} from '../app.component';
   styleUrls: ['./home-component.component.css']
 })
 export class HomeComponentComponent implements OnInit {
-  constructor(private eventsService: EventsService, private appComponent : AppComponent) {
+  constructor(private eventsService: EventsService, private appComponent : AppComponent, private router : Router) {
     eventsService.getEvents().subscribe(events => {
       this.events = events;
     });
@@ -19,11 +20,14 @@ export class HomeComponentComponent implements OnInit {
   
 	notMobile = true;
 	
+	
 	ngOnInit() {
     this.innerWidth = window.innerWidth;
 	if (this.innerWidth <= 400) this.notMobile = false;
 	}
 	
+	 
+  
 	
   
 }

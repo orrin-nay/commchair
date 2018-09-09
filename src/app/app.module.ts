@@ -49,6 +49,7 @@ const routes: Routes = [
   {path: 'register', component: ComponentRegisterComponent},
   {path: 'feed', component: ComponentFeedComponent},
   {path: 'profile', component: ComponentProfileComponent},
+  {path: 'event/:eventId', component: ComponentEventPageComponent }
 ];
 
 @NgModule({
