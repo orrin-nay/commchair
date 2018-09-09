@@ -37,8 +37,10 @@
     "express": "^4.16.3",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.13",
+    "ng-image-slider": "^1.0.1",
     "nodemon": "^1.18.4",
     "rxjs": "~6.2.0",
+    "vue-carousel": "^0.13.1",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

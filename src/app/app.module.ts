@@ -1,3 +1,4 @@
+import { NgImageSliderModule } from 'ng-image-slider';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Component } from '@angular/core';
@@ -48,6 +49,7 @@ const routes: Routes = [
     ComponentRegisterComponent
   ],
   imports: [
+    NgImageSliderModule,
     MATERIAL_MODULES,
     RouterModule.forRoot(routes, {useHash: true})
   ],
