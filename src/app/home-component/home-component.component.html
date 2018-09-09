@@ -23,7 +23,7 @@
       			<td>Event Description</td>
       		</tr>
         <tr *ngFor="let event of events" class="Volunteerevent">
-            		<td>{{event.organization}}</td>
+            		<a routerLink="/event/{{event._id}}"><td>{{event.organization}}</td></a>
             		<td>{{event.name}}</td>
                 <td>{{event.description}}</td>
                 <td>{{event._id}}</td>
@@ -35,7 +35,7 @@
       <div *ngIf="!notMobile" id="mobileFeedBox">
         <h3>Events</h3>      
         <ul *ngFor="let event of events" class="MobileVolunteerevent">
-                <li>{{event.organization}}</li>
+                <a routerLink="/event/{{event._id}}" ><li>{{event.organization}}</li></a>
                 <li>{{event.name}}</li>
                 <li>{{event.description}}</li>
               

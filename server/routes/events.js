@@ -6,12 +6,12 @@ const VolunteerOpportunity = require('../models/Events')
 const User = require('../models/User')
 
 module.exports.createEvent = (req, res) => {
-  console.log("dddddddddd")
   res.setHeader('Content-Type', 'application/json');
   const name = req.body.name;
   const description = req.body.description;
   const organization = req.body.organization;
   const jwtToken = req.body.jwt
+  const skills = req.body.skills
   jwt.verify(jwtToken, JWTSecret, function (err, userInfo) {
     if (err) {
       console.log(err)
@@ -64,7 +64,8 @@ module.exports.createEvent = (req, res) => {
         name,
         organization,
         description,
-        ownerId: user.id
+        ownerId: user.id,
+        skills
       })
       newOpportunity.save()
       res.send({

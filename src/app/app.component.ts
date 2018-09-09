@@ -51,6 +51,7 @@ export class AppComponent {
   }
   
 
+
   mobileNavVisible = false;
   mobileToggle() {
 	this.mobileNavVisible = ! this.mobileNavVisible;

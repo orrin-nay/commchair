@@ -24,8 +24,19 @@ export class ComponentProfileComponent implements OnInit {
   }
   addSkill() {
     if (this.canSubmit()) {
+      let shouldCancel = false
+      this.user.skills.forEach(skill=>{
+        if(this.skillName == skill.name){
+          shouldCancel = true;
+          return
+        }
+      })
+      if(shouldCancel){
+        return
+      }
       this.skills.forEach((skill: any) => {
         if (skill.name === this.skillName) {
+          console.log(skill)
           this.userService.addSkill(skill._id).subscribe(user => {
             this.user.skills.push(skill);
             this.skillName = undefined;
@@ -38,7 +49,7 @@ export class ComponentProfileComponent implements OnInit {
     const doesExist = this.user.skills.findIndex(
       o1 => o1.name === this.skillName
     );
-    if (!doesExist) {
+    if ( -1 < doesExist) {
       return false;
     }
     let skillExists = false;
@@ -61,7 +72,7 @@ export class ComponentProfileComponent implements OnInit {
       const doesExist = this.user.skills.findIndex(
         o1 => o1.name === skill.name
       );
-      if (doesExist) {
+      if (-1 === doesExist) {
         skillsReturn.push(skill);
       }
     });

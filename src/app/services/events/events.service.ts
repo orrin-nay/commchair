@@ -21,13 +21,14 @@ export class EventsService {
     return this.http.get<Event[]>(environment.host + '/api/events/getevents');
   }
 
-  createEvent(name: String, description: String, organization: String): Observable<Event> {
+  createEvent(name: String, description: String, organization: String, skills: String[]): Observable<Event> {
     const jwt =  localStorage.getItem('jwt-token');
     return this.http.post<Event>(environment.host + '/api/events/createevent', {
             name,
             description,
             organization,
             jwt,
+            skills
           });
   }
   subscribeEvent(eventId) {

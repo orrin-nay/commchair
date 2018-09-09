@@ -14,6 +14,11 @@ h1 {
     display:block;
 }
 
+#eventsForm .skillBar{
+    margin: 0px;
+    width: 100%;
+}
+
 #background {
     min-height: 100vh;
     position: absolute;
@@ -24,6 +29,11 @@ h1 {
     min-width: 100vh;
     background-image:url("../../images/tile.png");
     z-index: -10;
+}
+
+.ng-untouched.ng-pristine.ng-valid {
+    float: right;
+    clear: both;
 }
 
 #eventsForm {
@@ -56,6 +66,7 @@ h1 {
 #eventsForm button {
     width: 25%;
     background-color: #cc0000;
+    color: white;
 }
 
 .logo {

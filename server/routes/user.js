@@ -262,6 +262,19 @@ module.exports.addSkill = (req, res) => {
         if (!user.skills) {
           user.skills = []
         }
+        const shouldCancel = false
+        user.skills.forEach(userSkill => {
+          if(userSkill === user.id){
+            res.send({
+              error: "User already has skill"
+            })
+            shouldCancel = true
+            return
+          }
+        });
+        if(shouldCancel){
+          return
+        }
         user.skills.push(skill.id)
         user.save((user) => {
           res.send({success: true})
@@ -305,7 +318,7 @@ module.exports.removeSkill = (req, res) => {
         return
       }
       const index = user.skills.findIndex((o) => o === skill);
-      if (!index) {
+      if (index === -1) {
         res.send({
           error: "Invalid Skill"
         })
