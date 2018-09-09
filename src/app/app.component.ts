@@ -11,7 +11,7 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   goHome() {
-    this.router.navigate(['component']);
+    this.router.navigate(['']);
   }
 
   goGallery() {

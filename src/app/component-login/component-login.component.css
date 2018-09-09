@@ -1,8 +1,38 @@
 .login-form {
-    display: flex;
-    flex-direction: column;   
+    margin: auto;
+    width: 50%;
+    border: 1px solid black;
+    padding: 10px;  
 }
 
-.login-form > * {
-    width: 100%;
+.form {
+    margin: auto;
+    width: 20%;
+    border: 1px solid black;
+    padding: 10px;
 }
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    background-attachment: fixed;
+    background-image: url("../../images/tile.png");
+}
+
+.header-image {
+    background-image: url("../../images/Ulogo.png");
+    background-size: cover;
+}
+.title {
+    font-size: 20px;
+}
+
+.email-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .email-full-width {
+    width: 100%;
+  }
