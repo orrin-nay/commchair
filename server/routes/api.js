@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const { login, register, profile, addSkill, removeSkill } = require("./user")
-const { createEvent, getEvents, subscribe } = require("./events")
+const { createEvent, getEvent, getEvents, subscribe } = require("./events")
 const { getSkills } = require("./skills")
 
 mongoose.connect("mongodb://commchair:hacktheu2018@ds149672.mlab.com:49672/chaircomm");
@@ -26,6 +26,7 @@ router.use('/user/addskill', addSkill)
 router.use('/user/removeskill', removeSkill)
 
 router.use('/events/createevent', createEvent)
+router.use('/events/getevent', getEvent)
 router.use('/events/getevents', getEvents)
 router.use('/events/subscribe', subscribe);
 router.use('/skills/getskills', getSkills)

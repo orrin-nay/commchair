@@ -10,11 +10,20 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ComponentEventPageComponent implements OnInit {
 
+	private eventName : string;
+	private eventDesc : string;
+	private eventOrg : string;
 	private eventId : string; 
-  constructor(private route : ActivatedRoute) { }
+  constructor(private route : ActivatedRoute, private eventServace : EventsService) { }
 
   ngOnInit() {
 	  this.eventId = this.route.snapshot.paramMap.get("eventid");
+	  console.log(this.eventId);
+	  this.eventServace.getEvent(this.eventId).subscribe(event => {
+		  this.eventName = event.name
+		  this.eventOrg = event.organization
+		  this.eventDesc = event.description
+	  }); 
   }
   
 

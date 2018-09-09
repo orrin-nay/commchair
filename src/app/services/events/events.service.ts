@@ -17,6 +17,12 @@ export class EventsService {
 
   constructor(private http: HttpClient) { }
 
+  getEvent(eventid: string): Observable<Event>{
+	  return this.http.post<Event>(environment.host + '/api/events/getevent',{eventid: eventid});
+  }  
+  
+
+  
   getEvents(): Observable<Event[]> {
     return this.http.get<Event[]>(environment.host + '/api/events/getevents');
   }

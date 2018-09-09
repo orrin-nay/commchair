@@ -1,0 +1,13 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background-image: url('../../images/tile.png');
+}
+
+.event[_ngcontent-c1] {
+    width: 60%;
+    margin: auto;
+    padding: 15px;
+    background-color: white;
+}

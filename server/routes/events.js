@@ -75,6 +75,23 @@ module.exports.createEvent = (req, res) => {
   });
 }
 
+  module.exports.getEvent = (req, res) => {
+	const eventid = req.body.eventid;
+
+	  
+  res.setHeader('Content-Type', 'application/json');
+  VolunteerOpportunity.findById(eventid, function (err, opps) {
+    if (err) {
+      console.log(err)
+      res.send({
+        error: err
+      })
+      return
+    }
+    res.send(JSON.stringify(opps))
+  })
+}
+
 module.exports.getEvents = (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   VolunteerOpportunity.find({}, function (err, opps) {
