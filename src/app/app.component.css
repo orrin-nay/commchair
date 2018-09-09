@@ -21,6 +21,11 @@
 	text-align: center;
 }
 
+#nav ul{
+    margin: 0px;
+    padding: 0px;
+}
+
 nav a {
     font-size: 16pt;
     font-family: 'Raleway',helvetica, serif;

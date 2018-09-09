@@ -1,6 +1,11 @@
-<ul *ngIf="user">
-  <li>{{user.firstName}}</li>
-  <li>{{user.lastName}}</li>
-  <li>{{user.email}}</li>
-  <li>{{user.phone}}</li>
-</ul>
+<div id="background"></div>
+	<div class="wrapper">
+
+		<table *ngIf="user">
+			<th colspan="2"><h1 class="profile-title">Your Profile</h1></th>
+  			<tr><td>Firstname:</td><td>{{user.firstName}}</td></tr>
+  			<tr><td>LastName:</td><td>{{user.lastName}}</td></tr>
+  			<tr><td>Email:</td><td>{{user.email}}</td></tr>
+  			<tr><td>Phone:</td><td>{{user.phone}}</td></tr>
+		</table>
+	</div>
