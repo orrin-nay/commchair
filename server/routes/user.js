@@ -4,6 +4,7 @@ const {
   bcryptSalts
 } = require('../constants')
 const User = require('../models/User')
+const Skill = require('../models/Skill')
 const jwt = require('jsonwebtoken')
 
 
@@ -184,11 +185,86 @@ module.exports.profile = (req, res) => {
         return
       }
       user.password = undefined;
-      res.send(user)
+      const skills = []
+      if (user.skills) {
+        user.skills.forEach(
+          skill => skills.push(
+            new Promise((resolve) =>{
+            Skill.findById(skill).then(skill => {
+              resolve(skill)
+            })
+          }))
+        );
+      }
+      Promise.all(skills).then(function (skillsFromDb) {
+        user.skills = skillsFromDb
+        res.send(user)
+      })
     })
   })
 }
 
+module.exports.addSkill = (req, res) => {
+  const jwtToken = req.body.jwt
+  const skill = req.body.skill
+
+  if (!skill) {
+    res.send({
+      error: "Must include a skill"
+    })
+    return
+  }
+  Skill.findById(skill, (err, skill) => {
+    if (err) {
+      console.log(err)
+      res.send({
+        error: err
+      })
+      return
+    }
+    if (!skill) {
+      res.send({
+        error: "invalid skill"
+      })
+      return
+    }
+    jwt.verify(jwtToken, JWTSecret, function (err, userInfo) {
+      if (err) {
+        console.log(err)
+        res.send({
+          error: err
+        })
+        return
+      }
+      User.findOne({
+        email: userInfo.email
+      }, (err, user) => {
+        if (err) {
+          console.log(err)
+          res.send({
+            error: err
+          })
+          return
+        }
+        const doesUserExist = !!user
+        if (!doesUserExist) {
+          res.send({
+            error: "Issue"
+          })
+          return
+        }
+        if (!user.skills) {
+          user.skills = []
+        }
+        user.skills.push(skill)
+        user.save((user) => {
+          user.password = undefined;
+          res.send(user)
+        })
+      })
+    })
+  })
+}
 const makeJWT = (email, callback) => {
   jwt.sign({
     email: email

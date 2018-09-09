@@ -5,6 +5,7 @@ module.exports = mongoose.model('Event',
     name: String,
     ownerId: String,
     description: String,
-    organization: String
+    organization: String,
+    skills: [String],
   })
 )
