@@ -40,12 +40,8 @@
     "mongoose": "^5.2.13",
     "ng-image-slider": "^1.0.1",
     "nodemon": "^1.18.4",
-<<<<<<< HEAD
-    "rxjs": "^6.2.2",
-=======
     "rxjs": "~6.2.0",
     "vue-carousel": "^0.13.1",
->>>>>>> origin/gallery
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
