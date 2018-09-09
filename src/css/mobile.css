@@ -34,9 +34,6 @@
     	border: 0px;
 	}
 
-	#navCollapse{
-		display: none;
-	}
 
 
 	.mastHead .introBody {	
@@ -50,6 +47,10 @@
 	body .description .mission{
 		width: 100%;
 		margin:0px;
+	}
+
+	 .visible{
+		display: none;	
 	}
 
 
