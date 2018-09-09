@@ -72,3 +72,59 @@
 .Volunteerevent {
 	background-color: #a09c9c;;
 }
+
+/*** mobile ***/
+
+@media(max-width: 750px){
+	#mobileWrapper .introText h1{
+        font-size: 24pt;
+    }
+
+    #mobileWrapper .introText {
+    	padding: 0px;
+	}	
+
+	#mobileWrapper .introText h3{
+		font-size: 12pt;
+	}
+
+	#mobileWrapper .mastHead{
+		background-image: none;
+	}
+
+	#mobileWrapper .mission{
+		padding: 0px;
+	}
+
+	#mobileWrapper h3{
+		font-size: 12pt;
+		padding: 5px;
+	}
+
+	#mobileWrapper p{
+		font-size: 9pt;
+		padding: 5px;
+	}
+
+	.MobileVolunteerevent {
+    	padding: 5px;
+    	list-style-type: none;
+    	padding-bottom: 5px;
+    	margin-bottom: 25px;
+    	background-color: white;
+	}
+
+	#mobileFeedBox{
+		background-color: #cc0000;
+	}
+
+	#mobileFeedBox h3 {
+    	margin: 10px 0px;
+    	padding-top:15px; 
+    	color:white;
+	}
+
+	.MobileVolunteerevent li:first-of-type{
+    	font-weight: bold;
+	}
+}
