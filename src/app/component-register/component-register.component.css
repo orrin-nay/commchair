@@ -47,6 +47,7 @@ mat-form-field:last-of-type {
 #ugly-ass-form button {
     width: 25%;
     margin: 15px;
+    background-color: #cc0000;
 }
 
 #background {

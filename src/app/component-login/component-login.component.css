@@ -46,3 +46,8 @@ strong{
     height: 50px;
     width: 50px;
 }
+
+.login-page button{
+    background-color: #cc0000;
+    padding-bottom: 0px;
+}
