@@ -25,8 +25,9 @@
         <tr *ngFor="let event of events" class="Volunteerevent">
             		<td>{{event.organization}}</td>
             		<td>{{event.name}}</td>
-            		<td>{{event.description}}</td>
-            	
+                <td>{{event.description}}</td>
+                <td>{{event._id}}</td>
+            	  <td><button (click)="subscribe(event._id)" matButton>subscribe</button></td>
         </tr>
       </table>
 

@@ -319,6 +319,7 @@ module.exports.removeSkill = (req, res) => {
     })
   })
 }
+
 const makeJWT = (email, callback) => {
   jwt.sign({
     email: email

@@ -16,6 +16,7 @@ export class ComponentFeedComponent implements OnInit {
   events: any = [];
 
   ngOnInit() {
+    console.log(this.events);
   }
 
 }

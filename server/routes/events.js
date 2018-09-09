@@ -87,3 +87,61 @@ module.exports.getEvents = (req, res) => {
     res.send(JSON.stringify(opps))
   })
 }
+module.exports.subscribe = (req, res) => {
+  let subUser = {};
+  jwtToken = req.body.jwt;
+  eventId = req.body.eventId;
+  jwt.verify(jwtToken, JWTSecret, function (err, userInfo) {
+    if (err) {
+      console.log(err)
+      res.send({
+        error: err
+      })
+      return
+    }
+    User.findOne({
+      email: userInfo.email
+    }, (err, user) => {
+      if (err) {
+        console.log(err)
+        res.send({
+          error: err
+        })
+        return
+      }
+      const doesUserExist = !!user
+      if(!doesUserExist) {
+        res.send({
+          error: "User does not exist"
+        })
+        return
+      }
+      subUser = user;
+    })
+    VolunteerOpportunity.findById(eventId, (err, opp) => {
+      if (err) {
+        console.log(err)
+        res.send({
+          error: err
+        })
+        return
+      }
+      if (opp.subscribers.includes(subUser._id)) {
+        console.log("Can't add existent user to database");
+        res.send({
+          error: "User already subscribed"
+        })
+        return
+      }
+      else {
+        // opp.subscribers.push(subUser._id);
+        // opp.save();
+        console.log(opp);
+        res.send({
+          succes: true
+        })
+        return
+      }
+    })
+  })
+}

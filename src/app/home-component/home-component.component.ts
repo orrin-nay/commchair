@@ -22,7 +22,11 @@ export class HomeComponentComponent implements OnInit {
 	ngOnInit() {
     this.innerWidth = window.innerWidth;
 	if (this.innerWidth <= 400) this.notMobile = false;
-	}
+  }
+  subscribe(eventId) {
+    console.log(eventId);
+    this.eventsService.subscribeEvent(eventId).subscribe(e => console.log(e));
+  }
 	
 	
   

@@ -30,4 +30,12 @@ export class EventsService {
             jwt,
           });
   }
+  subscribeEvent(eventId) {
+    const jwt = localStorage.getItem('jwt-token');
+    return this.http.post<Event>(environment.host + '/api/events/subscribe',{
+        jwt,
+        eventId,
+      }
+    );
+  }
 }
