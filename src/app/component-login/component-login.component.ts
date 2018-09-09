@@ -15,6 +15,7 @@ export class ComponentLoginComponent implements OnInit {
     Validators.email,
   ]);
 
+
   constructor() { }
 
   ngOnInit() {
