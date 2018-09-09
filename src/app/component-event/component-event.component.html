@@ -18,7 +18,7 @@
     <input matInput placeholder="organization" formControlName="organization">
 
   </mat-form-field>
-  <table><tr><td><input type="text" list="skillsList" formControlName="skillName" name="skillName"></td><td><button [disabled]="! canSubmit()" (click)="addSkill()" type="button">Add Skill</button></td></tr></table>
+  <table class="skillBar"><tr ><input type="text" list="skillsList" formControlName="skillName"  name="skillName"><button class="skillbtn" [disabled]="! canSubmit()" (click)="addSkill()" type="button">Add Skill</button></tr></table>
   <ul>
       <li *ngFor="let skill of addedSkills">{{skill.name}}</li>
   </ul>
