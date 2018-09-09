@@ -10,7 +10,7 @@
 			
 			  </div>
 		
-		<div class="navCollapse">
+		<!-- <div class="navCollapse">
 		  <nav>
 			<ul>
 			  <li><a href="final.html">Home</a></li>	
@@ -23,13 +23,14 @@
 			</ul>
 		  </nav>
 		  
-		</div>
+		</div> -->
 	  </div>
 	
 	
 		  <nav id="nav" *ngIf="userService.isUserLoggedIn()">
 			  <ul>
 				<li><a (click)="goHome()">Home</a></li>
+				<li><a (click)="goEvent()">Events</a></li>
 		 		<li><a (click)="goGallery()">Gallery</a></li>
 				<li><a (click)="goLogout()" >Logout</a></li>
 			  </ul>
