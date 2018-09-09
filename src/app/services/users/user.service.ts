@@ -29,7 +29,16 @@ export class UserService {
       email,
       phone,
       password
-    });
+    }).pipe((data) => {
+      data.subscribe(userInfo => {
+        if (userInfo) {
+          if (userInfo.token) {
+            localStorage.setItem('jwt-token', userInfo.token);
+          }
+        }
+      });
+      return data;
+    });;
   }
   login(email, password) {
     return this.http.post<JWT>(environment.host + '/api/user/login', {
@@ -57,6 +66,18 @@ export class UserService {
     return this.http.post<User>(environment.host + '/api/user/profile',
     {
       jwt
+    });
+  }
+  addSkill(skill) {
+    return this.http.post<User>(environment.host + '/api/user/addskill',
+     {
+      skill
+    });
+  }
+  removeSkill(skill) {
+    return this.http.post<User>(environment.host + '/api/user/removeskill',
+     {
+      skill
     });
   }
 }
