@@ -21,12 +21,15 @@
       			<td>Event Organizer</td>
       			<td>Event Name</td>
       			<td>Event Description</td>
+            <td>dummy</td>
+            <td>Join The mailing list</td>
       		</tr>
         <tr *ngFor="let event of events" class="Volunteerevent">
             		<a routerLink="/event/{{event._id}}"><td>{{event.organization}}</td></a>
             		<td>{{event.name}}</td>
                 <td>{{event.description}}</td>
                 <td>{{event._id}}</td>
+
             	  <td><button (click)="subscribe(event._id)" matButton>subscribe</button></td>
         </tr>
       </table>
