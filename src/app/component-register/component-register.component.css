@@ -83,6 +83,10 @@ mat-form-field:last-of-type {
         width: 100%;
     }
 
+    #mobileWrapper #background{
+        min-width: 100%;
+    }
+
     #majorForm{
         margin:0px
     }

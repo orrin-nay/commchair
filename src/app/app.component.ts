@@ -46,7 +46,7 @@ export class AppComponent {
 	this.router.navigate(['']);
   }
   goProfile(){
-	this.	currentPage = "profile";
+	this.currentPage = "profile";
     this.router.navigate(['profile']);
   }
   
