@@ -12,7 +12,6 @@ export interface User {
   lastName: String;
   email: String;
   phone: String;
-  password: String;
 }
 
 @Injectable({
@@ -53,7 +52,16 @@ export class UserService {
   isUserLoggedIn(): boolean {
     return !!localStorage.getItem('jwt-token');
   }
+<<<<<<< HEAD
   getUser() {
     
+=======
+  getUserProfile() {
+    const jwt =  localStorage.getItem('jwt-token');
+    return this.http.post<User>(environment.host + '/api/user/profile',
+    {
+      jwt
+    });
+>>>>>>> orrins_dev
   }
 }
