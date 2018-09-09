@@ -63,6 +63,15 @@
     font-size: 16pt;
     padding: 15px;
     text-align: left;
+    vertical-align: baseline;
+}
+
+#feedBox td:first-of-type {
+    border-right: 2px solid;
+}
+
+#feedBox td:last-of-type{
+	border-left: 2px solid;
 }
 
 #feedBox td:first-of-type{
