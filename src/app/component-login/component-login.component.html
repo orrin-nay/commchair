@@ -6,9 +6,12 @@
   <body>
     <div class="login-page">  
         <div class="form">
+          <h1 class="title">UCareLogin</h1>
+          <form class="email-form">
           <img src="Ulogo.png" class='logo'>
           <h1 class="title">UCare Login</h1>
           <form class="email-form" (ngSubmit)="login(f)">
+
               <mat-form-field class="form-full-width">
                 <input matInput placeholder="Email" [formControl]="emailFormControl"
                        [errorStateMatcher]="matcher">
