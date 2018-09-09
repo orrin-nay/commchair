@@ -70,3 +70,7 @@ mat-form-field:last-of-type {
 #ugly-ass-form .title{
 	margin-left: 15px;
 }
+
+#ugly-ass-form form > form {
+	border:0px;
+}
